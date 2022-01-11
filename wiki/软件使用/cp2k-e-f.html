@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-language" content="en">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CP2K:能量与力的计算</title>
+  <meta name="description" content="CP2K能量与力的计算">
+  <meta name="author" content="Chenggroup">
+  <meta name="theme-color" content="cyan">    
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+  <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="canonical" href="chenggroup.github.io/pages/chenggroup/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-e-f">
+  <link rel="alternate" type="application/rss+xml" title="XMU Chenggroup Wiki" href="chenggroup.github.io/pages/chenggroup/feed.xml">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">      
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">  
+  <script src="/pages/chenggroup/assets/js/modernizr.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["mhchem.js"]
+    },
+    CommonHTML: {
+      matchFontHeight: false
+    }
+  });
+  </script>
+  <script type="text/javascript"
+    src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <link rel="shortcut icon" href="/pages/chenggroup/assets/img/favicon.png"> 
+  <link rel="stylesheet" href="/pages/chenggroup/assets/css/main.css">
+  <link rel="stylesheet" href="/pages/chenggroup/assets/css/palette.css">
+
+
+  <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="lime">
+    <svg class="md-svg">
+    <defs>
+        <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github">
+            <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+                  8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+                  18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+                  19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+                  18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+                  304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+                  2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+                  38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+                  37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+                  82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+                  1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+                  0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+                  30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+                  46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+                  99.5z" />
+        </svg>
+    </defs>
+</svg>
+
+    <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off>
+<input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off>
+    <label class=md-overlay data-md-component=overlay for=__drawer></label> <a href="#cp2k-能量与力的计算" tabindex=1 class=md-skip> Skip to content </a>
+    <header class=md-header data-md-component=header>
+        <nav class="md-header-nav md-grid">
+            <div class=md-flex>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                  <a class="md-header-nav__button md-logo" href="/pages/chenggroup" title="XMU Chenggroup Wiki">
+                    <i class="md-icon" style="margin-top:0px"></i></a>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <label class="md-icon md-icon--menu md-header-nav__button" for=__drawer></label>
+                </div>
+                <div class="md-flex__cell md-flex__cell--stretch">
+                    <div class="md-flex__ellipsis md-header-nav__title" data-md-component=title> 
+                        <span class=md-header-nav__topic>XMU Chenggroup Wiki</span>
+                        <span class=md-header-nav__topic>CP2K:能量与力的计算</span>
+                    </div>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <label class="md-icon md-icon--search md-header-nav__button" for=__search></label>
+                    <div class=md-search data-md-component=search role=dialog>
+                        <label class=md-search__overlay for=__search></label>
+                        <div class=md-search__inner role=search>
+                            <form class=md-search__form name=search>
+                                <input type=text class=md-search__input name=query placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=query data-md-state=active>
+                                <label class="md-icon md-search__icon" for=__search></label>
+                                <button type=reset class="md-icon md-search__icon" data-md-component=reset tabindex=-1> &#xE5CD; </button>
+                            </form>
+                            <div class=md-search__output>
+                                <div class=md-search__scrollwrap data-md-scrollfix>
+                                    <div class=md-search-result data-md-component=result>
+                                        <div class=md-search-result__meta> Type to start searching </div>
+                                        <ol class=md-search-result__list></ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          <a class="md-source" data-md-source="github" href="https://github.com/chenggroup/chenggroup.github.io" title="Go to repository">
+          <div class="md-source__icon" style="padding-top:5px">
+            <i class="fa fa-github fa-3x"></i>
+          </div>
+          <div class="md-source__repository">
+            chenggroup/chenggroup.github.io
+          </div></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <div class="md-container">         
+        <main class="md-main">
+            <div class="md-main__inner md-grid" data-md-component="container">
+            <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+  <div class="md-sidebar__scrollwrap">
+    <div class="md-sidebar__inner">
+      <nav class="md-nav md-nav--primary" data-md-level="0">
+          <label class="md-nav__title md-nav__title--site" for="__drawer"><a href="/pages/chenggroup/" title="XMU Chenggroup Wiki" class="md-nav__button md-logo"><i class="md-icon"></i></a> XMU Chenggroup Wiki</label>
+        <div class="md-nav__source">
+          <a class="md-source" data-md-source="github" href="https://github.com/chenggroup/chenggroup.github.io" title="Go to repository">
+          <div class="md-source__icon">
+          <svg height="24" viewbox="0 0 24 24" width="24">
+          <use height="24" width="24" xlink:href="#__github"></use></svg>
+          </div>
+          <div class="md-source__repository">
+            chenggroup/chenggroup.github.io
+          </div></a>
+        </div>
+
+        <ul class="md-nav__list" data-md-scrollfix="">
+          <li class="md-nav__item md-nav__item">
+            <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox">
+              <label class="md-nav__link" for="__toc">Table of contents</label>
+            <nav class="md-nav md-nav--secondary">
+              <label class="md-nav__title" for="__toc">Table of contents</label>
+              <ul id="nav-toc-left" class="md-nav__list" data-md-scrollfix="">
+              <!-- toc will be appended here!-->
+              </ul>
+            </nav>
+          </li>
+
+          <!-- This navigation is completely for mobile -->
+          
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%BC%80%E5%A7%8B/howtodo"
+               title="如何使用 wiki">如何使用 wiki</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%BC%80%E5%A7%8B/howtousenews"
+               title="如何发布 News">如何发布 News</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/cluster_usage"
+               title="计算集群使用说明">计算集群使用说明</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/ssh_note"
+               title="SSH 与 SCP 使用入门">SSH 与 SCP 使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/gpu_usage"
+               title="使用集群上的 GPU">使用集群上的 GPU</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/conda"
+               title="Anaconda">Anaconda</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/jupyter"
+               title="Jupyter">Jupyter</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/toc"
+               title="导览">导览</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/linux"
+               title="Linux快速基础入门">Linux快速基础入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/read_papers"
+               title="如何阅读文献">如何阅读文献</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/presentation"
+               title="如何进行展示/Presentation">如何进行展示/Presentation</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/python_numpy"
+               title="Python 和 Numpy">Python 和 Numpy</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/qc_dft"
+               title="量子化学与密度泛函理论">量子化学与密度泛函理论</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/basis_pps"
+               title="密度泛函近似，基组与赝势">密度泛函近似，基组与赝势</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpmd"
+               title="机器学习: 理论与DeePMD-kit">机器学习: 理论与DeePMD-kit</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpgen"
+               title="深度势能生成器: DP-GEN">深度势能生成器: DP-GEN</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/workflow"
+               title="自动化计算与工作流: AiiDA">自动化计算与工作流: AiiDA</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/book_recommendation"
+               title="书籍推荐">书籍推荐</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/archive_rules"
+               title="如何整理项目文件">如何整理项目文件</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/git_usage"
+               title="Git 基本使用教程">Git 基本使用教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/tutorial_rules"
+               title="如何组织培训">如何组织培训</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DeePMD-kit"
+               title="DeePMD-kit 使用入门">DeePMD-kit 使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DP-GEN"
+               title="DP-GEN使用入门">DP-GEN使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_191"
+               title="DeepMD-kit快速安装：服务器篇">DeepMD-kit快速安装：服务器篇</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_51"
+               title="DeepMD-kit安装实战：服务器篇">DeepMD-kit安装实战：服务器篇</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_pc"
+               title="DeePMD-kit_installation_pc">DeePMD-kit_installation_pc</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/cp2k-7.1"
+               title="CP2K 7.1 安装教程">CP2K 7.1 安装教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_104"
+               title="DeePMD-kit安装教程1.0">DeePMD-kit安装教程1.0</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Tips_for_LaTeX"
+               title="Tips for paper writing with LaTeX">Tips for paper writing with LaTeX</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/miscellaneous"
+               title="Miscellaneous">Miscellaneous</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/ECINT%20Tutorial/user"
+               title="ECINT 的使用">ECINT 的使用</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/QS4writing"
+               title="Quick Start for Paper Writing（科研写作急速上手）">Quick Start for Paper Writing（科研写作急速上手）</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/gcc"
+               title="gcc 安装教程">gcc 安装教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/hpc"
+               title="High Performance Cluster(HPC) Topics">High Performance Cluster(HPC) Topics</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/notification_for_hpc"
+               title="计算任务的推送">计算任务的推送</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/pack_backup"
+               title="文件整理与备份攻略">文件整理与备份攻略</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/research_skill"
+               title="研究技能">研究技能</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/softwares"
+               title="Guidances for installation of codes">Guidances for installation of codes</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-dft+u"
+               title="CP2K:DFT+U">CP2K:DFT+U</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-e-f"
+               title="CP2K:能量与力的计算">CP2K:能量与力的计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-hf"
+               title="CP2K:杂化泛函">CP2K:杂化泛函</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-neb"
+               title="CP2K:NEB">CP2K:NEB</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-reftraj"
+               title="CP2K:REFTRAJ根据已有MD轨迹计算">CP2K:REFTRAJ根据已有MD轨迹计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-scan"
+               title="CP2K:SCAN泛函">CP2K:SCAN泛函</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-slab"
+               title="CP2K:Slab计算">CP2K:Slab计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-zpe"
+               title="CP2K:ZPE">CP2K:ZPE</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k"
+               title="CP2K入门">CP2K入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/experience_of_dpmd_and_dpgen"
+               title="DPMD和DPGEN使用经验">DPMD和DPGEN使用经验</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/n2p2"
+               title="n2p2 Usage Guide">n2p2 Usage Guide</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/vmd"
+               title="vmd 使用说明">vmd 使用说明</a>
+          </li>
+          
+
+          <!-- This navigation is completely for non mobile -->
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">开始</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%BC%80%E5%A7%8B/howtodo" title="如何使用 wiki" style="display:none">如何使用 wiki</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%BC%80%E5%A7%8B/howtousenews" title="如何发布 News" style="display:none">如何发布 News</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">集群使用</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/cluster_usage" title="计算集群使用说明" style="display:none">计算集群使用说明</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/ssh_note" title="SSH 与 SCP 使用入门" style="display:none">SSH 与 SCP 使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/gpu_usage" title="使用集群上的 GPU" style="display:none">使用集群上的 GPU</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/conda" title="Anaconda" style="display:none">Anaconda</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/jupyter" title="Jupyter" style="display:none">Jupyter</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">新生培训</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/toc" title="导览" style="display:none">导览</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/linux" title="Linux快速基础入门" style="display:none">Linux快速基础入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/read_papers" title="如何阅读文献" style="display:none">如何阅读文献</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/presentation" title="如何进行展示/Presentation" style="display:none">如何进行展示/Presentation</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/python_numpy" title="Python 和 Numpy" style="display:none">Python 和 Numpy</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/qc_dft" title="量子化学与密度泛函理论" style="display:none">量子化学与密度泛函理论</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/basis_pps" title="密度泛函近似，基组与赝势" style="display:none">密度泛函近似，基组与赝势</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpmd" title="机器学习: 理论与DeePMD-kit" style="display:none">机器学习: 理论与DeePMD-kit</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpgen" title="深度势能生成器: DP-GEN" style="display:none">深度势能生成器: DP-GEN</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/workflow" title="自动化计算与工作流: AiiDA" style="display:none">自动化计算与工作流: AiiDA</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/book_recommendation">书籍推荐</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">合作协同</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/archive_rules" title="如何整理项目文件" style="display:none">如何整理项目文件</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/git_usage" title="Git 基本使用教程" style="display:none">Git 基本使用教程</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/tutorial_rules">如何组织培训</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">软件使用</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DeePMD-kit" title="DeePMD-kit 使用入门" style="display:none">DeePMD-kit 使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DP-GEN" title="DP-GEN使用入门" style="display:none">DP-GEN使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Tips_for_LaTeX" title="Tips for paper writing with LaTeX" style="display:none">Tips for paper writing with LaTeX</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-dft+u" title="CP2K:DFT+U" style="display:none">CP2K:DFT+U</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-e-f" title="CP2K:能量与力的计算" style="display:none">CP2K:能量与力的计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-hf" title="CP2K:杂化泛函" style="display:none">CP2K:杂化泛函</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-neb" title="CP2K:NEB" style="display:none">CP2K:NEB</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-reftraj" title="CP2K:REFTRAJ根据已有MD轨迹计算" style="display:none">CP2K:REFTRAJ根据已有MD轨迹计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-scan" title="CP2K:SCAN泛函" style="display:none">CP2K:SCAN泛函</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-slab" title="CP2K:Slab计算" style="display:none">CP2K:Slab计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-zpe" title="CP2K:ZPE" style="display:none">CP2K:ZPE</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k" title="CP2K入门" style="display:none">CP2K入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/experience_of_dpmd_and_dpgen" title="DPMD和DPGEN使用经验" style="display:none">DPMD和DPGEN使用经验</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/n2p2" title="n2p2 Usage Guide" style="display:none">n2p2 Usage Guide</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/vmd" title="vmd 使用说明" style="display:none">vmd 使用说明</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">Softwares Installation</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_191" title="DeepMD-kit快速安装：服务器篇" style="display:none">DeepMD-kit快速安装：服务器篇</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_51" title="DeepMD-kit安装实战：服务器篇" style="display:none">DeepMD-kit安装实战：服务器篇</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_pc" title="DeePMD-kit_installation_pc" style="display:none">DeePMD-kit_installation_pc</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/cp2k-7.1" title="CP2K 7.1 安装教程" style="display:none">CP2K 7.1 安装教程</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_104" title="DeePMD-kit安装教程1.0" style="display:none">DeePMD-kit安装教程1.0</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/gcc" title="gcc 安装教程" style="display:none">gcc 安装教程</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/miscellaneous">Miscellaneous</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">ECINT Tutorial</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/ECINT%20Tutorial/user" title="ECINT 的使用" style="display:none">ECINT 的使用</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/QS4writing">Quick Start for Paper Writing（科研写作急速上手）</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/hpc">High Performance Cluster(HPC) Topics</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/notification_for_hpc">计算任务的推送</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/pack_backup">文件整理与备份攻略</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/research_skill">研究技能</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/softwares">Guidances for installation of codes</a>
+            </li>
+          
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+  <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+      <nav class="md-nav md-nav--secondary">
+        <label class="md-nav__title" for="__toc">Table of contents</label>
+        <ul id="nav-toc-right" class="md-nav__list" data-md-scrollfix="">
+        <!-- toc will be appended here!-->
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+                <div id="md-container-pancakes">
+                <div class="md-content"> 
+    <article class="md-content__inner md-typeset">
+    <h1 id="cp2k能量与力的计算">CP2K能量与力的计算</h1>
+
+<h2 id="学习目标">学习目标</h2>
+
+<ul>
+  <li>
+    <p>认识CP2K的基础输入文件</p>
+  </li>
+  <li>
+    <p>认识CP2K输入文件的主要部分</p>
+  </li>
+  <li>
+    <p>运行计算</p>
+  </li>
+</ul>
+
+<p><a href="https://github.com/chenggroup/cp2k_tutorial/tree/main/00.calculate_energy_and_force">计算文件下载</a></p>
+
+<p>本教程改编自<a href="https://www.cp2k.org/howto:static_calculation">CP2K原教程</a>，以半导体和OT为例子，更符合组内需求。</p>
+
+<h2 id="认识cp2k的基础输入文件">认识CP2K的基础输入文件</h2>
+
+<p>原则上来说CP2K的输入文件只需要三个，一个是输入参数的设置文件<code class="language-plaintext highlighter-rouge">input.inp</code>，一个是赝势的参数文件<code class="language-plaintext highlighter-rouge">GTH_POTENTIALS</code>，一个是基组的参数文件<code class="language-plaintext highlighter-rouge">BASIS_SET</code>。</p>
+
+<p>在集群上，管理员已经把<code class="language-plaintext highlighter-rouge">GTH_POTENTIALS</code>和<code class="language-plaintext highlighter-rouge">BASIS_SET</code>放置在特定文件夹，并且使用<a href="/pages/chenggroup/wiki/Softwares%20Usage/cp2k#设置CP2K环境变量">特殊的链接方法</a>可以让CP2K程序自动寻找到。因此在后文中涉及到赝势和基组的部分可以直接填写对应的文件名称。</p>
+
+<h2 id="认识cp2k输入文件的主要部分">认识CP2K输入文件的主要部分</h2>
+
+<p>现在让我们打开<code class="language-plaintext highlighter-rouge">input.inp</code></p>
+
+<p>CP2K的输入文件主要包含两个SECTION.</p>
+
+<ul>
+  <li>“GLOBAL”: 一些让CP2K跑起来的通用选项，比如任务名称，任务类型。</li>
+  <li>“FORCE_EVAL”: 包含了所有跟求解原子的力有关的参数设置，也包括了原子的坐标信息</li>
+</ul>
+
+<p>现在我们先看<code class="language-plaintext highlighter-rouge">GLOBAL</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &amp;GLOBAL
+   PROJECT Universality
+   RUN_TYPE ENERGY_FORCE
+   PRINT_LEVEL
+ &amp;END GLOBAL
+</code></pre></div></div>
+
+<p>当要计算体系的力和能量时，我们必须在<code class="language-plaintext highlighter-rouge">RUN_TYPE</code>中对计算的类型进行指定。比如<code class="language-plaintext highlighter-rouge">RUN_TYPE ENERGY_FORCE</code>就是对当前的体系进行力和能量的计算。其他类型的计算可以在CP2K手册里找到。</p>
+
+<p><code class="language-plaintext highlighter-rouge">PROJECT</code>定义了这个计算的项目名称，通常被用来命名一些输出文件。</p>
+
+<p><code class="language-plaintext highlighter-rouge">PRINT_LEVEL</code>定义了CP2K <code class="language-plaintext highlighter-rouge">output</code>文件里输出信息量的大小。</p>
+
+<p>现在我们接着看<code class="language-plaintext highlighter-rouge">FORCE_EVAL</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>METHOD Quickstep
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">METHOD Quickstep</code>表明选择了使用密度泛函理论(Density Functional Theory)中的GPW方法进行计算原子受力。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   &amp;SUBSYS
+     &amp;CELL
+       ABC [angstrom]    4.593 4.593 2.959
+     &amp;END CELL
+     &amp;COORD
+ @include rutile.xyz
+     &amp;END COORD
+     &amp;KIND O
+       BASIS_SET DZVP-MOLOPT-SR-GTH
+       POTENTIAL GTH-PBE-q6
+     &amp;END KIND
+     &amp;KIND Ti
+       BASIS_SET DZVP-MOLOPT-SR-GTH
+       POTENTIAL GTH-PBE-q12
+     &amp;END KIND
+   &amp;END SUBSYS
+</code></pre></div></div>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">SUBSYS</code>定义了模拟的晶胞大小(ABC晶胞长度角度等)和原子坐标的初始结构. 有关于<code class="language-plaintext highlighter-rouge">@include</code>的用法，请参考<a href="https://manual.cp2k.org/cp2k-8_2-branch/index.html">这里</a></p>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">KIND</code> 定义了计算中出现的元素。对于每一种元素必须要有一个对应的<code class="language-plaintext highlighter-rouge">KIND</code> Section. 然后在<code class="language-plaintext highlighter-rouge">KIND</code>里面定义它的基组(BASIS_SET)和赝势(POTENTIAL)。</p>
+
+<p>BASIS_SET和POTENTIAL的名称一定要对应到基组文件里和赝势文件里存在的条目。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> O GTH-PBE-q6 GTH-PBE
+     2    4
+      0.24455430    2   -16.66721480     2.48731132
+     2
+      0.22095592    1    18.33745811
+      0.21133247    0
+
+</code></pre></div></div>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">CELL</code> 定义了模拟中的晶胞大小。 此例子中，ABC指的是晶胞的边长。如不额外指定角度，默认为90, 90, 90度。<code class="language-plaintext highlighter-rouge">[angstrom]</code>是指定长度单位。</p>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">COORD</code>定义初始的原子坐标。 原子位置的默认格式为</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ATOM_KIND&gt; X Y Z
+</code></pre></div></div>
+
+<p>X Y Z 为笛卡尔坐标，单位为Angstrom。如果添加<code class="language-plaintext highlighter-rouge">SCALED .TRUE.</code>，便是分数坐标。</p>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">DFT</code> 控制了所有跟DFT计算有关的细节。该Subsection只有当你把method选择为<code class="language-plaintext highlighter-rouge">quickstep</code>时才会起作用。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BASIS_SET_FILE_NAME  BASIS_SET
+POTENTIAL_FILE_NAME  GTH_POTENTIALS
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">BASIS_SET_FILE_NAME</code>和<code class="language-plaintext highlighter-rouge">POTENTIAL_FILE_NAME</code>定义了基组和赝势的文件路径。由于管理员已经在集群上设置好了路径，用户直接填写这两个文件名即可。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;QS
+  EPS_DEFAULT 1.0E-13
+&amp;END QS
+</code></pre></div></div>
+
+<p>Subsection<code class="language-plaintext highlighter-rouge">QS</code>包含了一些通用的控制参数。<code class="language-plaintext highlighter-rouge">EPS_DEFAULT</code>设置了所有<code class="language-plaintext highlighter-rouge">quickstep</code>会用到的默认容忍度。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     &amp;MGRID
+       CUTOFF 400
+       REL_CUTOFF 60
+     &amp;END MGRID
+</code></pre></div></div>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">MGRID</code> 定义了如何使用<code class="language-plaintext highlighter-rouge">quickstep</code>中的积分网格。<code class="language-plaintext highlighter-rouge">quickstep</code>使用了多网格方法来表示高斯函数。比较窄和尖的高斯函数会被投影到更精细的网格，而宽和顺滑的高斯函数则相反。在这个例子中，我们告诉代码需要设置最精细的网格为400Ry，并且REL_CUTOFF为60Ry。关于CUTOFF和REL_CUTOFF方面请<a href="https://www.cp2k.org/howto:converging_cutoff">阅读</a></p>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">XC</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     &amp;XC
+       &amp;XC_FUNCTIONAL PBE
+       &amp;END XC_FUNCTIONAL
+     &amp;END XC
+
+</code></pre></div></div>
+
+<p>这里定义了我们想使用的交换-关联密度泛函，在这个例子中我们选择了PBE泛函。P泛函要与基组和赝势的选择一致。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     &amp;SCF
+       SCF_GUESS ATOMIC
+       EPS_SCF 3.0E-7
+       MAX_SCF 50
+       &amp;OUTER_SCF
+         EPS_SCF 3.0E-7
+         MAX_SCF 10
+       &amp;END OUTER_SCF
+       &amp;OT
+         MINIMIZER DIIS
+         PRECONDITIONER FULL_SINGLE_INVERSE
+       &amp;END OT
+     &amp;END SCF
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">SCF_GUESS</code>设置了应该如何生成初始的尝试电子密度。在这个例子中，初始密度是由原子电荷密度重叠生成的。一个好的电子密度可以帮助CP2K快速得到收敛结果。<code class="language-plaintext highlighter-rouge">EPS_SCF</code>设置了电子密度差异的容忍度（收敛精度要求）。这个会覆盖<code class="language-plaintext highlighter-rouge">EPS_DEFAULT</code>设置的值。<code class="language-plaintext highlighter-rouge">MAX_SCF</code>指最多会迭代多少次。</p>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">OUTER_SCF</code>这里暂时先不多介绍，但是一般精度设置要跟以上的EPS_SCF一样。以上的SCF为INNER_SCF。<code class="language-plaintext highlighter-rouge">OUTER_SCF</code>设置<code class="language-plaintext highlighter-rouge">MAX_SCF</code> 为10。在计算中实际上会迭代的次数是<code class="language-plaintext highlighter-rouge">INNER_SCF</code>乘以<code class="language-plaintext highlighter-rouge">OUTER_SCF</code>，即50*10，500次。</p>
+
+<p>Subsection <code class="language-plaintext highlighter-rouge">OT</code>是利用Orbital Transformation的方法来优化波函数。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;PRINT
+  &amp;FORCES ON
+  &amp;END FORCES
+&amp;END PRINT
+</code></pre></div></div>
+
+<p>这个subsection可以在output里打印出体系的原子受力。</p>
+
+<h2 id="运行计算">运行计算</h2>
+
+<p>正常运行CP2K的方法为</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpirun -n 32 cp2k.popt input.inp &gt; output &amp; 
+</code></pre></div></div>
+
+<p>在集群上，我们使用lsf脚本文件提交，这行命令已经写在了脚本文件里，请直接提交。</p>
+
+<h2 id="输出结果">输出结果</h2>
+
+<p>在任务结束后，你会得到如下文件</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">output</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Universality-RESTART.wfn</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Universality-RESTART.wfn.bak-1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Universality-RESTART.wfn.bak-2</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Universality-RESTART.wfn.bak-3</code></li>
+</ul>
+
+<p>文件<code class="language-plaintext highlighter-rouge">output</code>包含了计算的主要输出。<code class="language-plaintext highlighter-rouge">Universality-RESTART.wfn</code>是计算最后得到波函数。<code class="language-plaintext highlighter-rouge">Universality-RESTART.wfn.bak-&lt;n&gt;</code>记录了最后第&lt;n&gt;步前SCF得到的波函数。此例中，<code class="language-plaintext highlighter-rouge">Universality-RESTART.wfn.bak-1</code>是SCF最后一步的波函数。</p>
+
+<p>但你想要利用波函数重启计算时，可以改为<code class="language-plaintext highlighter-rouge">SCF_GUESS RESTART</code></p>
+
+<p>他会自动从<code class="language-plaintext highlighter-rouge">&lt;PROJECT_NAME&gt;-RESTART.wfn</code>文件开始重启计算。</p>
+
+<p>我们现在详细看一下<code class="language-plaintext highlighter-rouge">output</code>文件里的部分</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_SINGLE_INVERSE : inversion of
+                                         H + eS - 2*(Sc)(c^T*H*c+const)(Sc)^T
+  Precond_solver : DEFAULT
+  stepsize       :    0.08000000                  energy_gap     :    0.08000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.80E-01    0.5     0.15753643      -176.9839582002 -1.77E+02
+     2 OT DIIS     0.80E-01    0.8     0.09878604      -178.9306891883 -1.95E+00
+     3 OT DIIS     0.80E-01    0.8     0.04863529      -179.6564913758 -7.26E-01
+     4 OT DIIS     0.80E-01    0.8     0.03582212      -179.9871432342 -3.31E-01
+     5 OT DIIS     0.80E-01    0.8     0.02520552      -180.2247770848 -2.38E-01
+     6 OT DIIS     0.80E-01    0.8     0.01876959      -180.4037691134 -1.79E-01
+     7 OT DIIS     0.80E-01    0.8     0.01356216      -180.5257615047 -1.22E-01
+     8 OT DIIS     0.80E-01    0.8     0.01016476      -180.5867232155 -6.10E-02
+     9 OT DIIS     0.80E-01    0.8     0.00712662      -180.6348174041 -4.81E-02
+    10 OT DIIS     0.80E-01    0.8     0.00528671      -180.6543176954 -1.95E-02
+    11 OT DIIS     0.80E-01    0.8     0.00401555      -180.6682811925 -1.40E-02
+    12 OT DIIS     0.80E-01    0.8     0.00331228      -180.6769383021 -8.66E-03
+    13 OT DIIS     0.80E-01    0.8     0.00273633      -180.6824801501 -5.54E-03
+    14 OT DIIS     0.80E-01    0.8     0.00227705      -180.6858569326 -3.38E-03
+    15 OT DIIS     0.80E-01    0.8     0.00189452      -180.6891762522 -3.32E-03
+    16 OT DIIS     0.80E-01    0.8     0.00163117      -180.6913433711 -2.17E-03
+    17 OT DIIS     0.80E-01    0.8     0.00137647      -180.6931734207 -1.83E-03
+    18 OT DIIS     0.80E-01    0.8     0.00119961      -180.6942368984 -1.06E-03
+    19 OT DIIS     0.80E-01    0.9     0.00100873      -180.6952066209 -9.70E-04
+    20 OT DIIS     0.80E-01    0.8     0.00084472      -180.6960712607 -8.65E-04
+    21 OT DIIS     0.80E-01    0.9     0.00073811      -180.6966143834 -5.43E-04
+    22 OT DIIS     0.80E-01    0.8     0.00062100      -180.6969845494 -3.70E-04
+    23 OT DIIS     0.80E-01    0.8     0.00052079      -180.6972986282 -3.14E-04
+    24 OT DIIS     0.80E-01    0.8     0.00044814      -180.6975096788 -2.11E-04
+    25 OT DIIS     0.80E-01    0.8     0.00038815      -180.6976499085 -1.40E-04
+    26 OT DIIS     0.80E-01    0.8     0.00034010      -180.6977592686 -1.09E-04
+    27 OT DIIS     0.80E-01    0.8     0.00029429      -180.6978276824 -6.84E-05
+    28 OT DIIS     0.80E-01    0.8     0.00025218      -180.6979007896 -7.31E-05
+    29 OT DIIS     0.80E-01    0.8     0.00022927      -180.6979456455 -4.49E-05
+    30 OT DIIS     0.80E-01    0.8     0.00020201      -180.6979830729 -3.74E-05
+    31 OT DIIS     0.80E-01    0.8     0.00017896      -180.6980145219 -3.14E-05
+    32 OT DIIS     0.80E-01    0.8     0.00016066      -180.6980416001 -2.71E-05
+    33 OT DIIS     0.80E-01    0.8     0.00014606      -180.6980603801 -1.88E-05
+    34 OT DIIS     0.80E-01    0.8     0.00012970      -180.6980811127 -2.07E-05
+    35 OT DIIS     0.80E-01    0.8     0.00011431      -180.6980956614 -1.45E-05
+    36 OT DIIS     0.80E-01    0.8     0.00009560      -180.6981114298 -1.58E-05
+    37 OT DIIS     0.80E-01    0.8     0.00008482      -180.6981210277 -9.60E-06
+    38 OT DIIS     0.80E-01    0.8     0.00007281      -180.6981278770 -6.85E-06
+    39 OT DIIS     0.80E-01    0.8     0.00006188      -180.6981329264 -5.05E-06
+    40 OT DIIS     0.80E-01    0.8     0.00005294      -180.6981368983 -3.97E-06
+    41 OT DIIS     0.80E-01    0.8     0.00004688      -180.6981391197 -2.22E-06
+    42 OT DIIS     0.80E-01    0.8     0.00004055      -180.6981410282 -1.91E-06
+    43 OT DIIS     0.80E-01    0.8     0.00003559      -180.6981421977 -1.17E-06
+    44 OT DIIS     0.80E-01    0.8     0.00003040      -180.6981432648 -1.07E-06
+    45 OT DIIS     0.80E-01    0.8     0.00002734      -180.6981439881 -7.23E-07
+    46 OT DIIS     0.80E-01    0.8     0.00002451      -180.6981445033 -5.15E-07
+    47 OT DIIS     0.80E-01    0.8     0.00002178      -180.6981449169 -4.14E-07
+    48 OT DIIS     0.80E-01    0.8     0.00001953      -180.6981452985 -3.82E-07
+    49 OT DIIS     0.80E-01    0.8     0.00001795      -180.6981455598 -2.61E-07
+    50 OT DIIS     0.80E-01    0.8     0.00001622      -180.6981458123 -2.52E-07
+
+  Leaving inner SCF loop after reaching    50 steps.
+
+
+  Electronic density on regular grids:        -47.9999999967        0.0000000033
+  Core density on regular grids:               48.0000000000       -0.0000000000
+  Total charge density on r-space grids:        0.0000000033
+  Total charge density g-space grids:           0.0000000033
+
+  Overlap energy of the core charge distribution:               0.00000000000007
+  Self energy of the core charge distribution:               -379.90298629198736
+  Core Hamiltonian energy:                                    102.12467948924306
+  Hartree energy:                                             125.99881317904760
+  Exchange-correlation energy:                                -28.91865218857406
+
+  Total energy:                                              -180.69814581227070
+
+  outer SCF iter =    1 RMS gradient =   0.16E-04 energy =       -180.6981458123
+</code></pre></div></div>
+
+<p>以上显示了我们使用OT DIIS方法进行计算。现在计算已经进行了50个SCF迭代。当然现在还未达到收敛限。我们可以看到最后一个<code class="language-plaintext highlighter-rouge">outer SCF iter = 1</code>也就是说一个outer SCF包含了一个完整的innter SCF。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ATOMIC FORCES in [a.u.]
+
+ # Atom   Kind   Element          X              Y              Z
+      1      1      Ti          0.00000026    -0.00000079     0.00000063
+      2      1      Ti          0.00000026    -0.00000027     0.00000004
+      3      2      O          -0.07002277     0.07002168    -0.00000018
+      4      2      O           0.07002184    -0.07002056     0.00000006
+      5      2      O           0.07002270     0.07002086    -0.00000083
+      6      2      O          -0.07002229    -0.07002093     0.00000028
+ SUM OF ATOMIC FORCES           0.00000000    -0.00000000     0.00000000     0.00000000
+
+</code></pre></div></div>
+
+<p>以上显示了原子受力的情况，我们发现有些原子的受力不接近于0，说明这个系统还没处在最佳的结构位置。</p>
+
+
+    <script
+  src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js"
+  crossorigin="anonymous"></script>
+<script src="/pages/chenggroup/assets/js/toc.js"></script>
+<script src="/pages/chenggroup/assets/js/scrollnav.min.umd.js"></script>
+
+<script>
+const content = document.querySelector('.md-content__inner');
+const insertTarget = document.querySelector('#nav-toc-right');
+scrollnav.init(content, {
+    debug: false,
+    sections: 'h2',
+    subSections: 'h3',
+    insertTarget: insertTarget,
+    insertLocation: 'append',
+    easingStyle: 'easeInOutQuint'
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#nav-toc-left').toc({headers: 'h2, h3', showEffect: 'slideDown', showSpeed: 'quick'});
+})
+</script>
+
+    <!-- this will parse through the header fields and add a button to open
+     an issue / ask a question on Github. The editable field should be in
+     the post frontend matter, and refer to the label to open the issue for -->
+
+<style>
+.more {
+    float:right;
+    font-size: 1.0rem !important;
+}
+.more:hover {
+    color: cornflowerblue !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 85px;
+    font-weight: 300;
+    font-size: x-small;
+    box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.2);
+    padding: 0px 10px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+<script>
+$(document).ready(function() {
+
+    var divs = $("#h1,h2,h3,h4"); 
+    $.each(divs, function(i,e){
+
+        // Edit
+        var did = $(e).attr('id');
+        var start = '<div class="dropdown more"><span><i class="fa fa-ellipsis-h more" title="Edit"></i></span><div class="dropdown-content">';
+
+        // Edit (assuming deployed under main organization repo)
+        var link = "https://github.com/chenggroup/chenggroup.github.io/edit/master/_wiki/软件使用/cp2k-e-f.md#" + did;
+        var button = "<p><a href='" + link + "' target='_blank'>Edit this page</a></p>";
+        start += button;
+
+        // Issues;
+        var link = "https://github.com/chenggroup/chenggroup.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/chenggroup/chenggroup.github.io/tree/master/_wiki/软件使用/cp2k-e-f.md%23" + did;
+
+        var button = "<p><a href='" + link + "' target='_blank'>Ask a Question</a></p>";
+        start += button;
+        start += "</div></div>";
+        $(e).append(start)
+
+    })
+});
+</script>
+
+    </article>
+</div>
+
+
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="c-footer md-footer-nav">
+  <div class="u-container c-footer__container">
+    <nav class="md-footer-nav__inner md-grid">
+         <a href="/pages/chenggroup/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-hf" title="CP2K:杂化泛函" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                CP2K:杂化泛函
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+      </nav>
+    </div>
+  
+   <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 - Chenggroup
+          </div>        
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <a href="https://github.com/chenggroup" target="_blank" class="md-footer-social__link fa fa-github"></a>
+      
+      
+      
+  </div>
+
+    </div>
+  </div>
+
+</footer>
+<script src="/pages/chenggroup/assets/js/application.js"></script>
+
+<script>app.initialize({version:"0.17.4", url:{base:'/pages/chenggroup'}})</script>
+
+    <script>
+var headers = ["h1", "h2", "h3", "h4"]
+var colors = ["red", "orange", "green", "blue"]
+
+$.each(headers, function(i, header){
+    var color = colors[i];
+    $(header).each(function () {
+        var href=$(this).attr("id");
+        $(this).append('<a class="headerlink" style="color:' + color + '" href="#' + href + '" title="Permanent link">¶</a>')
+    });
+})
+
+// Ensure that sidebar on left has arrows
+$(".pancakes-parent").on('click', function(){ 
+    console.log($(this).next());
+    $(this).next().find('.pancakes-child').toggle();
+    if ($(this).hasClass('open-parent')){
+        $(this).removeClass('open-parent');
+    } else {
+        $(this).addClass('open-parent');
+    }
+})
+</script>
+
+    <script>$('h1').first().append('<div><span class="md-typeset" style="float:right">Authors: Yongbin Zhuang</span></div>')</script>
+
+    <style>
+#scrolltop {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #00a1d6; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px 15px; /* Some padding */
+  border-radius: 100px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  font-weight: 600;
+}
+
+#scrolltop:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+</style>
+<button onclick="topFunction()" id="scrolltop" title="Go to top">🔝</button>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrolltop").style.display = "block";
+  } else {
+    document.getElementById("scrolltop").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+    
+
+  </body>
+</html>

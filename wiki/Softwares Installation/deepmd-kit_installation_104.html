@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-language" content="en">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DeePMD-kit安装教程1.0</title>
+  <meta name="description" content="DeepMD-kit安装实战：服务器篇（旧版）">
+  <meta name="author" content="Chenggroup">
+  <meta name="theme-color" content="cyan">    
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+  <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="canonical" href="chenggroup.github.io/pages/chenggroup/wiki/Softwares%20Installation/deepmd-kit_installation_104">
+  <link rel="alternate" type="application/rss+xml" title="XMU Chenggroup Wiki" href="chenggroup.github.io/pages/chenggroup/feed.xml">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">      
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">  
+  <script src="/pages/chenggroup/assets/js/modernizr.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["mhchem.js"]
+    },
+    CommonHTML: {
+      matchFontHeight: false
+    }
+  });
+  </script>
+  <script type="text/javascript"
+    src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <link rel="shortcut icon" href="/pages/chenggroup/assets/img/favicon.png"> 
+  <link rel="stylesheet" href="/pages/chenggroup/assets/css/main.css">
+  <link rel="stylesheet" href="/pages/chenggroup/assets/css/palette.css">
+
+
+  <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="lime">
+    <svg class="md-svg">
+    <defs>
+        <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github">
+            <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+                  8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+                  18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+                  19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+                  18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+                  304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+                  2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+                  38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+                  37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+                  82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+                  1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+                  0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+                  30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+                  46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+                  99.5z" />
+        </svg>
+    </defs>
+</svg>
+
+    <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off>
+<input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off>
+    <label class=md-overlay data-md-component=overlay for=__drawer></label> <a href="#deepmd-kit安装教程1-0" tabindex=1 class=md-skip> Skip to content </a>
+    <header class=md-header data-md-component=header>
+        <nav class="md-header-nav md-grid">
+            <div class=md-flex>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                  <a class="md-header-nav__button md-logo" href="/pages/chenggroup" title="XMU Chenggroup Wiki">
+                    <i class="md-icon" style="margin-top:0px"></i></a>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <label class="md-icon md-icon--menu md-header-nav__button" for=__drawer></label>
+                </div>
+                <div class="md-flex__cell md-flex__cell--stretch">
+                    <div class="md-flex__ellipsis md-header-nav__title" data-md-component=title> 
+                        <span class=md-header-nav__topic>XMU Chenggroup Wiki</span>
+                        <span class=md-header-nav__topic>DeePMD-kit安装教程1.0</span>
+                    </div>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <label class="md-icon md-icon--search md-header-nav__button" for=__search></label>
+                    <div class=md-search data-md-component=search role=dialog>
+                        <label class=md-search__overlay for=__search></label>
+                        <div class=md-search__inner role=search>
+                            <form class=md-search__form name=search>
+                                <input type=text class=md-search__input name=query placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=query data-md-state=active>
+                                <label class="md-icon md-search__icon" for=__search></label>
+                                <button type=reset class="md-icon md-search__icon" data-md-component=reset tabindex=-1> &#xE5CD; </button>
+                            </form>
+                            <div class=md-search__output>
+                                <div class=md-search__scrollwrap data-md-scrollfix>
+                                    <div class=md-search-result data-md-component=result>
+                                        <div class=md-search-result__meta> Type to start searching </div>
+                                        <ol class=md-search-result__list></ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          <a class="md-source" data-md-source="github" href="https://github.com/chenggroup/chenggroup.github.io" title="Go to repository">
+          <div class="md-source__icon" style="padding-top:5px">
+            <i class="fa fa-github fa-3x"></i>
+          </div>
+          <div class="md-source__repository">
+            chenggroup/chenggroup.github.io
+          </div></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <div class="md-container">         
+        <main class="md-main">
+            <div class="md-main__inner md-grid" data-md-component="container">
+            <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+  <div class="md-sidebar__scrollwrap">
+    <div class="md-sidebar__inner">
+      <nav class="md-nav md-nav--primary" data-md-level="0">
+          <label class="md-nav__title md-nav__title--site" for="__drawer"><a href="/pages/chenggroup/" title="XMU Chenggroup Wiki" class="md-nav__button md-logo"><i class="md-icon"></i></a> XMU Chenggroup Wiki</label>
+        <div class="md-nav__source">
+          <a class="md-source" data-md-source="github" href="https://github.com/chenggroup/chenggroup.github.io" title="Go to repository">
+          <div class="md-source__icon">
+          <svg height="24" viewbox="0 0 24 24" width="24">
+          <use height="24" width="24" xlink:href="#__github"></use></svg>
+          </div>
+          <div class="md-source__repository">
+            chenggroup/chenggroup.github.io
+          </div></a>
+        </div>
+
+        <ul class="md-nav__list" data-md-scrollfix="">
+          <li class="md-nav__item md-nav__item">
+            <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox">
+              <label class="md-nav__link" for="__toc">Table of contents</label>
+            <nav class="md-nav md-nav--secondary">
+              <label class="md-nav__title" for="__toc">Table of contents</label>
+              <ul id="nav-toc-left" class="md-nav__list" data-md-scrollfix="">
+              <!-- toc will be appended here!-->
+              </ul>
+            </nav>
+          </li>
+
+          <!-- This navigation is completely for mobile -->
+          
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%BC%80%E5%A7%8B/howtodo"
+               title="如何使用 wiki">如何使用 wiki</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%BC%80%E5%A7%8B/howtousenews"
+               title="如何发布 News">如何发布 News</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/cluster_usage"
+               title="计算集群使用说明">计算集群使用说明</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/ssh_note"
+               title="SSH 与 SCP 使用入门">SSH 与 SCP 使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/gpu_usage"
+               title="使用集群上的 GPU">使用集群上的 GPU</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/conda"
+               title="Anaconda">Anaconda</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/jupyter"
+               title="Jupyter">Jupyter</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/toc"
+               title="导览">导览</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/linux"
+               title="Linux快速基础入门">Linux快速基础入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/read_papers"
+               title="如何阅读文献">如何阅读文献</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/presentation"
+               title="如何进行展示/Presentation">如何进行展示/Presentation</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/python_numpy"
+               title="Python 和 Numpy">Python 和 Numpy</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/qc_dft"
+               title="量子化学与密度泛函理论">量子化学与密度泛函理论</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/basis_pps"
+               title="密度泛函近似，基组与赝势">密度泛函近似，基组与赝势</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpmd"
+               title="机器学习: 理论与DeePMD-kit">机器学习: 理论与DeePMD-kit</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpgen"
+               title="深度势能生成器: DP-GEN">深度势能生成器: DP-GEN</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/workflow"
+               title="自动化计算与工作流: AiiDA">自动化计算与工作流: AiiDA</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/book_recommendation"
+               title="书籍推荐">书籍推荐</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/archive_rules"
+               title="如何整理项目文件">如何整理项目文件</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/git_usage"
+               title="Git 基本使用教程">Git 基本使用教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/tutorial_rules"
+               title="如何组织培训">如何组织培训</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DeePMD-kit"
+               title="DeePMD-kit 使用入门">DeePMD-kit 使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DP-GEN"
+               title="DP-GEN使用入门">DP-GEN使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_191"
+               title="DeepMD-kit快速安装：服务器篇">DeepMD-kit快速安装：服务器篇</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_51"
+               title="DeepMD-kit安装实战：服务器篇">DeepMD-kit安装实战：服务器篇</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_pc"
+               title="DeePMD-kit_installation_pc">DeePMD-kit_installation_pc</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/cp2k-7.1"
+               title="CP2K 7.1 安装教程">CP2K 7.1 安装教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_104"
+               title="DeePMD-kit安装教程1.0">DeePMD-kit安装教程1.0</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Tips_for_LaTeX"
+               title="Tips for paper writing with LaTeX">Tips for paper writing with LaTeX</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/miscellaneous"
+               title="Miscellaneous">Miscellaneous</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/ECINT%20Tutorial/user"
+               title="ECINT 的使用">ECINT 的使用</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/QS4writing"
+               title="Quick Start for Paper Writing（科研写作急速上手）">Quick Start for Paper Writing（科研写作急速上手）</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/gcc"
+               title="gcc 安装教程">gcc 安装教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/hpc"
+               title="High Performance Cluster(HPC) Topics">High Performance Cluster(HPC) Topics</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/notification_for_hpc"
+               title="计算任务的推送">计算任务的推送</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/pack_backup"
+               title="文件整理与备份攻略">文件整理与备份攻略</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/research_skill"
+               title="研究技能">研究技能</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/softwares"
+               title="Guidances for installation of codes">Guidances for installation of codes</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-dft+u"
+               title="CP2K:DFT+U">CP2K:DFT+U</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-e-f"
+               title="CP2K:能量与力的计算">CP2K:能量与力的计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-hf"
+               title="CP2K:杂化泛函">CP2K:杂化泛函</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-neb"
+               title="CP2K:NEB">CP2K:NEB</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-reftraj"
+               title="CP2K:REFTRAJ根据已有MD轨迹计算">CP2K:REFTRAJ根据已有MD轨迹计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-scan"
+               title="CP2K:SCAN泛函">CP2K:SCAN泛函</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-slab"
+               title="CP2K:Slab计算">CP2K:Slab计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-zpe"
+               title="CP2K:ZPE">CP2K:ZPE</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k"
+               title="CP2K入门">CP2K入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/experience_of_dpmd_and_dpgen"
+               title="DPMD和DPGEN使用经验">DPMD和DPGEN使用经验</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/n2p2"
+               title="n2p2 Usage Guide">n2p2 Usage Guide</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/vmd"
+               title="vmd 使用说明">vmd 使用说明</a>
+          </li>
+          
+
+          <!-- This navigation is completely for non mobile -->
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">开始</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%BC%80%E5%A7%8B/howtodo" title="如何使用 wiki" style="display:none">如何使用 wiki</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%BC%80%E5%A7%8B/howtousenews" title="如何发布 News" style="display:none">如何发布 News</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">集群使用</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/cluster_usage" title="计算集群使用说明" style="display:none">计算集群使用说明</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/ssh_note" title="SSH 与 SCP 使用入门" style="display:none">SSH 与 SCP 使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/gpu_usage" title="使用集群上的 GPU" style="display:none">使用集群上的 GPU</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/conda" title="Anaconda" style="display:none">Anaconda</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/jupyter" title="Jupyter" style="display:none">Jupyter</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">新生培训</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/toc" title="导览" style="display:none">导览</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/linux" title="Linux快速基础入门" style="display:none">Linux快速基础入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/read_papers" title="如何阅读文献" style="display:none">如何阅读文献</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/presentation" title="如何进行展示/Presentation" style="display:none">如何进行展示/Presentation</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/python_numpy" title="Python 和 Numpy" style="display:none">Python 和 Numpy</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/qc_dft" title="量子化学与密度泛函理论" style="display:none">量子化学与密度泛函理论</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/basis_pps" title="密度泛函近似，基组与赝势" style="display:none">密度泛函近似，基组与赝势</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpmd" title="机器学习: 理论与DeePMD-kit" style="display:none">机器学习: 理论与DeePMD-kit</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpgen" title="深度势能生成器: DP-GEN" style="display:none">深度势能生成器: DP-GEN</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/workflow" title="自动化计算与工作流: AiiDA" style="display:none">自动化计算与工作流: AiiDA</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/book_recommendation">书籍推荐</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">合作协同</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/archive_rules" title="如何整理项目文件" style="display:none">如何整理项目文件</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/git_usage" title="Git 基本使用教程" style="display:none">Git 基本使用教程</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/tutorial_rules">如何组织培训</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">软件使用</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DeePMD-kit" title="DeePMD-kit 使用入门" style="display:none">DeePMD-kit 使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DP-GEN" title="DP-GEN使用入门" style="display:none">DP-GEN使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Tips_for_LaTeX" title="Tips for paper writing with LaTeX" style="display:none">Tips for paper writing with LaTeX</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-dft+u" title="CP2K:DFT+U" style="display:none">CP2K:DFT+U</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-e-f" title="CP2K:能量与力的计算" style="display:none">CP2K:能量与力的计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-hf" title="CP2K:杂化泛函" style="display:none">CP2K:杂化泛函</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-neb" title="CP2K:NEB" style="display:none">CP2K:NEB</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-reftraj" title="CP2K:REFTRAJ根据已有MD轨迹计算" style="display:none">CP2K:REFTRAJ根据已有MD轨迹计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-scan" title="CP2K:SCAN泛函" style="display:none">CP2K:SCAN泛函</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-slab" title="CP2K:Slab计算" style="display:none">CP2K:Slab计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-zpe" title="CP2K:ZPE" style="display:none">CP2K:ZPE</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k" title="CP2K入门" style="display:none">CP2K入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/experience_of_dpmd_and_dpgen" title="DPMD和DPGEN使用经验" style="display:none">DPMD和DPGEN使用经验</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/n2p2" title="n2p2 Usage Guide" style="display:none">n2p2 Usage Guide</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/vmd" title="vmd 使用说明" style="display:none">vmd 使用说明</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">Softwares Installation</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_191" title="DeepMD-kit快速安装：服务器篇" style="display:none">DeepMD-kit快速安装：服务器篇</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_51" title="DeepMD-kit安装实战：服务器篇" style="display:none">DeepMD-kit安装实战：服务器篇</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_pc" title="DeePMD-kit_installation_pc" style="display:none">DeePMD-kit_installation_pc</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/cp2k-7.1" title="CP2K 7.1 安装教程" style="display:none">CP2K 7.1 安装教程</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_104" title="DeePMD-kit安装教程1.0" style="display:none">DeePMD-kit安装教程1.0</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/gcc" title="gcc 安装教程" style="display:none">gcc 安装教程</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/miscellaneous">Miscellaneous</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">ECINT Tutorial</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/ECINT%20Tutorial/user" title="ECINT 的使用" style="display:none">ECINT 的使用</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/QS4writing">Quick Start for Paper Writing（科研写作急速上手）</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/hpc">High Performance Cluster(HPC) Topics</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/notification_for_hpc">计算任务的推送</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/pack_backup">文件整理与备份攻略</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/research_skill">研究技能</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/softwares">Guidances for installation of codes</a>
+            </li>
+          
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+  <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+      <nav class="md-nav md-nav--secondary">
+        <label class="md-nav__title" for="__toc">Table of contents</label>
+        <ul id="nav-toc-right" class="md-nav__list" data-md-scrollfix="">
+        <!-- toc will be appended here!-->
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+                <div id="md-container-pancakes">
+                <div class="md-content"> 
+    <article class="md-content__inner md-typeset">
+    <h1 id="deepmd-kit安装实战服务器篇旧版">DeepMD-kit安装实战：服务器篇（旧版）</h1>
+
+<blockquote>
+  <p>本部分写于2019年11月，基于国重服务器环境进行安装，适用于Tensorflow版本低于1.13的情形。目前针对更高版本已经有<a href="/pages/chenggroup/wiki/softwares_installation/deepmd-kit_installation_51">新版教程</a>，请移步。</p>
+</blockquote>
+
+<h2 id="准备工作">准备工作</h2>
+
+<p>首先准备必要的依赖。</p>
+
+<p>检查可用的模块，并加载必要的模块：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module avail
+module add cuda/9.2
+module add gcc/4.9.4
+# gcc&gt;=4.9 required by dp_ipi, or it won't be built.
+# For gcc-8.3 could not be supported, here we select a lower version.
+</code></pre></div></div>
+
+<p>本教程推荐使用conda虚拟环境安装，故：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module add miniconda/3.7
+conda create -n deepmd python=3.6
+conda activate deepmd
+</code></pre></div></div>
+
+<p>下载并编译nccl：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /some/nccl_download_path
+git clone https://github.com/NVIDIA/nccl.git -b v2.4.8-1
+cd nccl
+make -j src.build --prefix="/some/nccl_install_path" NVCC_GENCODE="-gencode=arch=compute_70,code=sm_70"
+</code></pre></div></div>
+
+<p>由于国重GPU节点不能直接联网，故使用登陆节点进行编译效率较高，但由于缺少必要的依赖<code class="language-plaintext highlighter-rouge">libcuda.so</code>和<code class="language-plaintext highlighter-rouge">libcuda.so.1</code>（包含在GPU驱动中，登陆节点未安装），故采用stubs所带的库编译，并手动加入环境变量。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln -s /share/cuda/9.2/lib64/stubs/libcuda.so /some/local/path/libcuda.so.1
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/share/cuda/9.2/lib64/stubs:/some/local/path
+</code></pre></div></div>
+
+<p>在某个想要的路径下将tensorflow-1.12版本的源代码下载好：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /some/workspace
+git clone https://github.com/tensorflow/tensorflow tensorflow -b r1.12 --depth=1
+</code></pre></div></div>
+
+<p>下载好bazel安装包并运行，将所需的环境加入环境变量：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/bazelbuild/bazel/releases/download/0.15.0/bazel-0.15.0-installer-linux-x86_64.sh
+chmod +x bazel-0.15.0-installer-linux-x86_64.sh
+./bazel-0.15.0-installer-linux-x86_64.sh --user
+export PATH="$PATH:$HOME/bin"
+</code></pre></div></div>
+
+<h2 id="tensorflow编译">tensorflow编译</h2>
+
+<p>首先配置tensorflow的编译选项：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd tensorflow/
+./configure
+</code></pre></div></div>
+
+<p>根据需要，提供正确的组件和路径：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please specify the location of python. [Default is /xxx]:
+
+Found possible Python library paths:
+  /xxx/python3.6/site-packages
+Please input the desired Python library path to use. Default is [xxx/python3.6/site-packages]
+
+Do you wish to build TensorFlow with Apache Ignite support? [Y/n]: Y
+
+Do you wish to build TensorFlow with XLA JIT support? [Y/n]: Y
+
+Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: N
+
+Do you wish to build TensorFlow with ROCm support? [y/N]: N
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: Y
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]: 9.2
+
+Please specify the location where CUDA 9.2 toolkit is installed. Refer to README.md for more details. [Default is /usr/local/cuda]: /share/cuda/9.2
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7]: 7
+
+Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda-10.0]: /share/cuda/9.2
+
+Do you wish to build TensorFlow with TensorRT support? [y/N]: N
+
+Please specify the NCCL version you want to use. If NCCL 2.2 is not installed, then you can use version 1.3 that can be fetched automatically but it may have worse performance with multiple GPUs. [Default is 2.2]: 2.4.8
+
+Please specify the location where NCCL 2 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:/some/nccl_install_path
+
+Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,7.0] 6.1
+
+Do you want to use clang as CUDA compiler? [y/N]: N
+
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /xxx/gcc]: 
+
+Do you wish to build TensorFlow with MPI support? [y/N]: N
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native]: -march=native
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:N
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>注意</strong></p>
+
+  <ol>
+    <li>CUDA需要写清是9.2版本，否则可能会找不到小版本的依赖库。</li>
+  </ol>
+
+  <p>然后运行编译，但由于该节点的版本较为非主流，建议自行编译tf的python interface以避免兼容性问题。</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel build --config=opt --copt=-msse4.2 --copt=-mavx --copt=-mavx2 --copt=-mfma --local_resources 2048,.5,1.0 --config=cuda //tensorflow/tools/pip_package:build_pip_package --action_env="LD_LIBRARY_PATH=${LD_LIBRARY_PATH}"
+</code></pre></div>  </div>
+
+  <p>由于目前节点支持主要的几种优化参数，故可以全部打开以加快运行速度。</p>
+
+  <p>为了他人的正常使用，建议主动限制在登陆节点上编译时的内存和CPU资源使用量。<code class="language-plaintext highlighter-rouge">--local_resources 2048,.5,1.0</code>这个设定可能有些保守，但可以保证不会占用过多资源（实测需要11个小时左右，但全程内存占用不超过2G且只使用了一个线程，若觉得太慢可以把中间的参数适当调高）。</p>
+
+  <ol>
+    <li>nccl和gcc的路径对应前面加载和编译的环境。</li>
+  </ol>
+</blockquote>
+
+<p>编译如果通过，则再运行以下命令编译c++ interface（实际上一步已经编译好所需的大部分依赖，这一步只是再封装成c++库）：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bazel build -c opt --copt=-msse4.2 --copt=-mavx --copt=-mavx2 --copt=-mfma --config=cuda --verbose_failures //tensorflow:libtensorflow_cc.so --action_env="LD_LIBRARY_PATH=${LD_LIBRARY_PATH}"
+</code></pre></div></div>
+
+<p>这里可以先将tensorflow-python安装好。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+pip install /tmp/tensorflow_pkg/tensorflow-version-tags.whl # depends on your version info
+</code></pre></div></div>
+
+<p>然后，将进行一系列依赖的编译和安装。以防万一，建议首先安装依赖，方便起见，这里使用conda安装。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install automake autoconf libtool
+</code></pre></div></div>
+
+<p>将cmake切换到新版本：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module add cmake/3.7.3
+</code></pre></div></div>
+
+<p>指定tf-cc的目标路径为变量<code class="language-plaintext highlighter-rouge">$tensorflow_root</code>，并依次运行以下命令：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p $tensorflow_root
+mkdir /tmp/proto
+sed -i 's;PROTOBUF_URL=.*;PROTOBUF_URL=\"https://mirror.bazel.build/github.com/google/protobuf/archive/v3.6.0.tar.gz\";g' tensorflow/contrib/makefile/download_dependencies.sh
+tensorflow/contrib/makefile/download_dependencies.sh
+cd tensorflow/contrib/makefile/downloads/protobuf/
+./autogen.sh
+./configure --prefix=/tmp/proto/
+make
+make install
+mkdir /tmp/eigen
+cd ../eigen
+mkdir build_dir
+cd build_dir
+cmake -DCMAKE_INSTALL_PREFIX=/tmp/eigen/ ../
+make install
+mkdir /tmp/nsync
+cd ../../nsync
+mkdir build_dir
+cd build_dir
+cmake -DCMAKE_INSTALL_PREFIX=/tmp/nsync/ ../
+make
+make install
+cd ../../absl
+bazel build
+mkdir -p $tensorflow_root/include/
+rsync -avzh --include '*/' --include '*.h' --exclude '*' absl $tensorflow_root/include/
+cd ../../../../..
+mkdir $tensorflow_root/lib
+cp bazel-bin/tensorflow/libtensorflow_cc.so $tensorflow_root/lib/
+cp bazel-bin/tensorflow/libtensorflow_framework.so $tensorflow_root/lib/
+cp /tmp/proto/lib/libprotobuf.a $tensorflow_root/lib/
+cp /tmp/nsync/lib64/libnsync.a $tensorflow_root/lib/
+mkdir -p $tensorflow_root/include/tensorflow
+cp -r bazel-genfiles/* $tensorflow_root/include/
+cp -r tensorflow/cc $tensorflow_root/include/tensorflow
+cp -r tensorflow/core $tensorflow_root/include/tensorflow
+cp -r third_party $tensorflow_root/include
+cp -r /tmp/proto/include/* $tensorflow_root/include
+cp -r /tmp/eigen/include/eigen3/* $tensorflow_root/include
+cp -r /tmp/nsync/include/*h $tensorflow_root/include
+cd $tensorflow_root/include
+find . -name "*.cc" -type f -delete
+rm -fr /tmp/proto /tmp/eigen /tmp/nsync
+</code></pre></div></div>
+
+<p>以完成c++部分的编译。</p>
+
+<h2 id="deepmd-kit安装10">DeePMD-kit安装(1.0+)</h2>
+
+<p>首先下载DeePMD-kit，并进入：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /some/workspace
+git clone https://github.com/deepmodeling/deepmd-kit.git
+cd deepmd-kit
+deepmd_source_dir=`pwd`
+</code></pre></div></div>
+
+<p>如果前面使用了<code class="language-plaintext highlighter-rouge">module load gcc/4.9.4</code>提供的高版本gcc（以4.9.4为例）进行编译，需要手动载入对应的环境变量供cmake识别正确的gcc版本。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export CC=/share/apps/gcc/4.9.4/bin/gcc
+export CXX=/share/apps/gcc/4.9.4/bin/g++
+</code></pre></div></div>
+
+<p>然后安装dpmd-py</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install .
+</code></pre></div></div>
+
+<blockquote>
+  <p>如果遇到<code class="language-plaintext highlighter-rouge">no module named 'google'</code>或者<code class="language-plaintext highlighter-rouge">no module named 'absl'</code>的报错，则可能存在版本bug，需要重新安装依赖。</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install --update protobus
+pip install --update absl-py
+</code></pre></div>  </div>
+</blockquote>
+
+<p>指定DeePMD-kit的目标路径为变量<code class="language-plaintext highlighter-rouge">$deepmd_root</code>，随后编译DeePMD-kit C++ Interface：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd $deepmd_source_dir/source
+mkdir build 
+cd build
+cmake -DTENSORFLOW_ROOT=$tensorflow_root -DCMAKE_INSTALL_PREFIX=$deepmd_root ..
+make
+make install
+</code></pre></div></div>
+
+<p>如果运行：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls $deepmd_root/bin
+dp_ipi
+$ ls $deepmd_root/lib
+libdeepmd_ipi.so  libdeepmd_op.so  libdeepmd.so
+</code></pre></div></div>
+
+<p>得到上述的结果，说明编译成功（若<code class="language-plaintext highlighter-rouge">cmake</code>时检测到的是4.8或更低版本的gcc，则编译结果会缺少<code class="language-plaintext highlighter-rouge">dp_ipi</code>和<code class="language-plaintext highlighter-rouge">libdeepmd_ipi.so</code>）。</p>
+
+<h2 id="lammps-deepmd-kit-接口编译">LAMMPS DeePMD-kit 接口编译</h2>
+
+<p>首先编译接口：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd $deepmd_source_dir/source/build
+make lammps
+</code></pre></div></div>
+
+<p>然后下载好稳定版的lammps，并解压：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /some/workspace
+wget -c https://lammps.sandia.gov/tars/lammps-stable.tar.gz
+tar xf lammps-stable.tar.gz
+</code></pre></div></div>
+
+<p>若解压后得到目录名为<code class="language-plaintext highlighter-rouge">lammps-31Mar17</code>，则</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd lammps-31Mar17/src/
+cp -r $deepmd_source_dir/source/build/USER-DEEPMD .
+</code></pre></div></div>
+
+<p>打开deepmd module，并根据需要添加所需的模块，以<code class="language-plaintext highlighter-rouge">fep</code>为例：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make yes-user-deepmd
+make yes-user-fep 
+</code></pre></div></div>
+
+<p>载入需要的mpi库，并编译：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load intel/15.0.6
+module load mpi/intel/5.0.3.049
+make mpi -j4
+</code></pre></div></div>
+
+<p>得到可执行文件：<code class="language-plaintext highlighter-rouge">lmp_mpi</code>。</p>
+
+<p>可将该文件复制到在<code class="language-plaintext highlighter-rouge">$PATH</code>中的路径，则可以直接输入文件名运行。</p>
+
+<h2 id="注意">注意</h2>
+
+<p>完成上述安装步骤后，若需要立即测试运行，<strong>必须</strong>将stubs提供的<code class="language-plaintext highlighter-rouge">libcuda.so</code>和<code class="language-plaintext highlighter-rouge">libcuda.so.1</code>从环境变量中移除，否则运行时会报错。</p>
+
+<p>可以直接退出登陆并重新登陆，以免出现该问题。</p>
+
+<h2 id="一些可能的坑">一些可能的坑</h2>
+
+<p>尽管上述过程应该已经绕过了大部分的坑，但仍不能保证100%安装运行成功。这里记录几种可能的报错的处理方案。</p>
+
+<h3 id="需要conda-init">需要conda init</h3>
+
+<p>这种情况已知可能发生在lsf脚本提交的步骤，来源于<code class="language-plaintext highlighter-rouge">conda activate deepmd</code>的步骤。具体原因尚不清楚，解决方案是手动载入所需的环境变量。推荐的做法是利用用户自定义module。</p>
+
+<p>首先，启用自定义module：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load use.own
+</code></pre></div></div>
+
+<p>然后运行<code class="language-plaintext highlighter-rouge">module avail</code>查看自定义脚本的文件位置，输出结果可能如下：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>----------- /share/base/modulefiles/compilers -----------
+............
+
+------------- /usr/share/Modules/modulefiles ------------
+dot         module-git  module-info modules     null        use.own
+
+------------ /data/home/someuser/privatemodules ------------
+null
+</code></pre></div></div>
+
+<p>显示<code class="language-plaintext highlighter-rouge">/data/home/someuser/privatemodules</code>是当前用户自定义模块的存放位置。</p>
+
+<p>则创建路径，并进入：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p /data/home/someuser/privatemodules
+cd /data/home/someuser/privatemodules
+</code></pre></div></div>
+
+<p>然后根据想要的名字创建文件或目录。</p>
+
+<p>比如想以deepmd为模块名，且希望提供不同版本的支持，则可以：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir deepmd
+vim 1.0
+</code></pre></div></div>
+
+<p>编辑1.0文件：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Help message
+proc ModulesHelp { } {
+    set nameversion [module-info name]
+    regsub "/.*" $nameversion "" name
+    regsub ".*/" $nameversion "" version
+    puts stderr "\tLoads the $version $name environment"
+}
+
+# Set variables
+set nameversion [module-info name]
+regsub "/.*" $nameversion "" name
+regsub ".*/" $nameversion "" version
+
+module-whatis "Miniconda, an alternative distirbution for python 3.6"
+
+# set environment variables
+
+    setenv		PYTHONROOT	/data/home/someuser/anaconda3/envs/deepmd
+
+    prepend-path	PATH		$env(PYTHONROOT)/bin
+    prepend-path	MANPATH		$env(PYTHONROOT)/share/man
+    prepend-path	PYTHONPATH	$env(PYTHONROOT)/lib/python3.6/site-packages
+</code></pre></div></div>
+
+<p>注意修改<code class="language-plaintext highlighter-rouge">PYTHONROOT</code>为正确的虚拟环境路径（可用<code class="language-plaintext highlighter-rouge">conda env list</code>查看）,并且<code class="language-plaintext highlighter-rouge">python3.6</code>也要与实际使用的python版本一致。</p>
+
+<p>这样，便可以通过module调用所需的虚拟环境。</p>
+
+<p>使用时提交脚本可以这样写：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load use.own
+module load deepmd/1.0
+</code></pre></div></div>
+
+    <script
+  src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js"
+  crossorigin="anonymous"></script>
+<script src="/pages/chenggroup/assets/js/toc.js"></script>
+<script src="/pages/chenggroup/assets/js/scrollnav.min.umd.js"></script>
+
+<script>
+const content = document.querySelector('.md-content__inner');
+const insertTarget = document.querySelector('#nav-toc-right');
+scrollnav.init(content, {
+    debug: false,
+    sections: 'h2',
+    subSections: 'h3',
+    insertTarget: insertTarget,
+    insertLocation: 'append',
+    easingStyle: 'easeInOutQuint'
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#nav-toc-left').toc({headers: 'h2, h3', showEffect: 'slideDown', showSpeed: 'quick'});
+})
+</script>
+
+    <!-- this will parse through the header fields and add a button to open
+     an issue / ask a question on Github. The editable field should be in
+     the post frontend matter, and refer to the label to open the issue for -->
+
+<style>
+.more {
+    float:right;
+    font-size: 1.0rem !important;
+}
+.more:hover {
+    color: cornflowerblue !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 85px;
+    font-weight: 300;
+    font-size: x-small;
+    box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.2);
+    padding: 0px 10px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+<script>
+$(document).ready(function() {
+
+    var divs = $("#h1,h2,h3,h4"); 
+    $.each(divs, function(i,e){
+
+        // Edit
+        var did = $(e).attr('id');
+        var start = '<div class="dropdown more"><span><i class="fa fa-ellipsis-h more" title="Edit"></i></span><div class="dropdown-content">';
+
+        // Edit (assuming deployed under main organization repo)
+        var link = "https://github.com/chenggroup/chenggroup.github.io/edit/master/_wiki/Softwares Installation/deepmd-kit_installation_104.md#" + did;
+        var button = "<p><a href='" + link + "' target='_blank'>Edit this page</a></p>";
+        start += button;
+
+        // Issues;
+        var link = "https://github.com/chenggroup/chenggroup.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/chenggroup/chenggroup.github.io/tree/master/_wiki/Softwares Installation/deepmd-kit_installation_104.md%23" + did;
+
+        var button = "<p><a href='" + link + "' target='_blank'>Ask a Question</a></p>";
+        start += button;
+        start += "</div></div>";
+        $(e).append(start)
+
+    })
+});
+</script>
+
+    </article>
+</div>
+
+
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="c-footer md-footer-nav">
+  <div class="u-container c-footer__container">
+    <nav class="md-footer-nav__inner md-grid">
+         <a href="/pages/chenggroup/wiki/Softwares%20Installation/deepmd-kit_installation_191" title="DeepMD-kit快速安装：服务器篇" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                DeepMD-kit快速安装：服务器篇
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+      </nav>
+    </div>
+  
+   <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 - Chenggroup
+          </div>        
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <a href="https://github.com/chenggroup" target="_blank" class="md-footer-social__link fa fa-github"></a>
+      
+      
+      
+  </div>
+
+    </div>
+  </div>
+
+</footer>
+<script src="/pages/chenggroup/assets/js/application.js"></script>
+
+<script>app.initialize({version:"0.17.4", url:{base:'/pages/chenggroup'}})</script>
+
+    <script>
+var headers = ["h1", "h2", "h3", "h4"]
+var colors = ["red", "orange", "green", "blue"]
+
+$.each(headers, function(i, header){
+    var color = colors[i];
+    $(header).each(function () {
+        var href=$(this).attr("id");
+        $(this).append('<a class="headerlink" style="color:' + color + '" href="#' + href + '" title="Permanent link">¶</a>')
+    });
+})
+
+// Ensure that sidebar on left has arrows
+$(".pancakes-parent").on('click', function(){ 
+    console.log($(this).next());
+    $(this).next().find('.pancakes-child').toggle();
+    if ($(this).hasClass('open-parent')){
+        $(this).removeClass('open-parent');
+    } else {
+        $(this).addClass('open-parent');
+    }
+})
+</script>
+
+    <script>$('h1').first().append('<div><span class="md-typeset" style="float:right">Authors: Yunpei Liu</span></div>')</script>
+
+    <style>
+#scrolltop {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #00a1d6; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px 15px; /* Some padding */
+  border-radius: 100px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  font-weight: 600;
+}
+
+#scrolltop:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+</style>
+<button onclick="topFunction()" id="scrolltop" title="Go to top">🔝</button>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrolltop").style.display = "block";
+  } else {
+    document.getElementById("scrolltop").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+    
+
+  </body>
+</html>

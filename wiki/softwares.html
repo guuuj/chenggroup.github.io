@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-language" content="en">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Guidances for installation of codes</title>
+  <meta name="description" content="Installation Guide for Codes and Libraries">
+  <meta name="author" content="Chenggroup">
+  <meta name="theme-color" content="cyan">    
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+  <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="canonical" href="chenggroup.github.io/pages/chenggroup/wiki/softwares">
+  <link rel="alternate" type="application/rss+xml" title="XMU Chenggroup Wiki" href="chenggroup.github.io/pages/chenggroup/feed.xml">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">      
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">  
+  <script src="/pages/chenggroup/assets/js/modernizr.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["mhchem.js"]
+    },
+    CommonHTML: {
+      matchFontHeight: false
+    }
+  });
+  </script>
+  <script type="text/javascript"
+    src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <link rel="shortcut icon" href="/pages/chenggroup/assets/img/favicon.png"> 
+  <link rel="stylesheet" href="/pages/chenggroup/assets/css/main.css">
+  <link rel="stylesheet" href="/pages/chenggroup/assets/css/palette.css">
+
+
+  <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="lime">
+    <svg class="md-svg">
+    <defs>
+        <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github">
+            <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+                  8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+                  18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+                  19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+                  18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+                  304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+                  2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+                  38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+                  37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+                  82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+                  1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+                  0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+                  30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+                  46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+                  99.5z" />
+        </svg>
+    </defs>
+</svg>
+
+    <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off>
+<input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off>
+    <label class=md-overlay data-md-component=overlay for=__drawer></label> <a href="#guidances-for-installation-of-codes" tabindex=1 class=md-skip> Skip to content </a>
+    <header class=md-header data-md-component=header>
+        <nav class="md-header-nav md-grid">
+            <div class=md-flex>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                  <a class="md-header-nav__button md-logo" href="/pages/chenggroup" title="XMU Chenggroup Wiki">
+                    <i class="md-icon" style="margin-top:0px"></i></a>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <label class="md-icon md-icon--menu md-header-nav__button" for=__drawer></label>
+                </div>
+                <div class="md-flex__cell md-flex__cell--stretch">
+                    <div class="md-flex__ellipsis md-header-nav__title" data-md-component=title> 
+                        <span class=md-header-nav__topic>XMU Chenggroup Wiki</span>
+                        <span class=md-header-nav__topic>Guidances for installation of codes</span>
+                    </div>
+                </div>
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <label class="md-icon md-icon--search md-header-nav__button" for=__search></label>
+                    <div class=md-search data-md-component=search role=dialog>
+                        <label class=md-search__overlay for=__search></label>
+                        <div class=md-search__inner role=search>
+                            <form class=md-search__form name=search>
+                                <input type=text class=md-search__input name=query placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=query data-md-state=active>
+                                <label class="md-icon md-search__icon" for=__search></label>
+                                <button type=reset class="md-icon md-search__icon" data-md-component=reset tabindex=-1> &#xE5CD; </button>
+                            </form>
+                            <div class=md-search__output>
+                                <div class=md-search__scrollwrap data-md-scrollfix>
+                                    <div class=md-search-result data-md-component=result>
+                                        <div class=md-search-result__meta> Type to start searching </div>
+                                        <ol class=md-search-result__list></ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          <a class="md-source" data-md-source="github" href="https://github.com/chenggroup/chenggroup.github.io" title="Go to repository">
+          <div class="md-source__icon" style="padding-top:5px">
+            <i class="fa fa-github fa-3x"></i>
+          </div>
+          <div class="md-source__repository">
+            chenggroup/chenggroup.github.io
+          </div></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <div class="md-container">         
+        <main class="md-main">
+            <div class="md-main__inner md-grid" data-md-component="container">
+            <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+  <div class="md-sidebar__scrollwrap">
+    <div class="md-sidebar__inner">
+      <nav class="md-nav md-nav--primary" data-md-level="0">
+          <label class="md-nav__title md-nav__title--site" for="__drawer"><a href="/pages/chenggroup/" title="XMU Chenggroup Wiki" class="md-nav__button md-logo"><i class="md-icon"></i></a> XMU Chenggroup Wiki</label>
+        <div class="md-nav__source">
+          <a class="md-source" data-md-source="github" href="https://github.com/chenggroup/chenggroup.github.io" title="Go to repository">
+          <div class="md-source__icon">
+          <svg height="24" viewbox="0 0 24 24" width="24">
+          <use height="24" width="24" xlink:href="#__github"></use></svg>
+          </div>
+          <div class="md-source__repository">
+            chenggroup/chenggroup.github.io
+          </div></a>
+        </div>
+
+        <ul class="md-nav__list" data-md-scrollfix="">
+          <li class="md-nav__item md-nav__item">
+            <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox">
+              <label class="md-nav__link" for="__toc">Table of contents</label>
+            <nav class="md-nav md-nav--secondary">
+              <label class="md-nav__title" for="__toc">Table of contents</label>
+              <ul id="nav-toc-left" class="md-nav__list" data-md-scrollfix="">
+              <!-- toc will be appended here!-->
+              </ul>
+            </nav>
+          </li>
+
+          <!-- This navigation is completely for mobile -->
+          
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%BC%80%E5%A7%8B/howtodo"
+               title="如何使用 wiki">如何使用 wiki</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%BC%80%E5%A7%8B/howtousenews"
+               title="如何发布 News">如何发布 News</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/cluster_usage"
+               title="计算集群使用说明">计算集群使用说明</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/ssh_note"
+               title="SSH 与 SCP 使用入门">SSH 与 SCP 使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/gpu_usage"
+               title="使用集群上的 GPU">使用集群上的 GPU</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/conda"
+               title="Anaconda">Anaconda</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/jupyter"
+               title="Jupyter">Jupyter</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/toc"
+               title="导览">导览</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/linux"
+               title="Linux快速基础入门">Linux快速基础入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/read_papers"
+               title="如何阅读文献">如何阅读文献</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/presentation"
+               title="如何进行展示/Presentation">如何进行展示/Presentation</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/python_numpy"
+               title="Python 和 Numpy">Python 和 Numpy</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/qc_dft"
+               title="量子化学与密度泛函理论">量子化学与密度泛函理论</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/basis_pps"
+               title="密度泛函近似，基组与赝势">密度泛函近似，基组与赝势</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpmd"
+               title="机器学习: 理论与DeePMD-kit">机器学习: 理论与DeePMD-kit</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpgen"
+               title="深度势能生成器: DP-GEN">深度势能生成器: DP-GEN</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/workflow"
+               title="自动化计算与工作流: AiiDA">自动化计算与工作流: AiiDA</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/book_recommendation"
+               title="书籍推荐">书籍推荐</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/archive_rules"
+               title="如何整理项目文件">如何整理项目文件</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/git_usage"
+               title="Git 基本使用教程">Git 基本使用教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/tutorial_rules"
+               title="如何组织培训">如何组织培训</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DeePMD-kit"
+               title="DeePMD-kit 使用入门">DeePMD-kit 使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DP-GEN"
+               title="DP-GEN使用入门">DP-GEN使用入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_191"
+               title="DeepMD-kit快速安装：服务器篇">DeepMD-kit快速安装：服务器篇</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_51"
+               title="DeepMD-kit安装实战：服务器篇">DeepMD-kit安装实战：服务器篇</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_pc"
+               title="DeePMD-kit_installation_pc">DeePMD-kit_installation_pc</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/cp2k-7.1"
+               title="CP2K 7.1 安装教程">CP2K 7.1 安装教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/deepmd-kit_installation_104"
+               title="DeePMD-kit安装教程1.0">DeePMD-kit安装教程1.0</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Tips_for_LaTeX"
+               title="Tips for paper writing with LaTeX">Tips for paper writing with LaTeX</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/miscellaneous"
+               title="Miscellaneous">Miscellaneous</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/ECINT%20Tutorial/user"
+               title="ECINT 的使用">ECINT 的使用</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/QS4writing"
+               title="Quick Start for Paper Writing（科研写作急速上手）">Quick Start for Paper Writing（科研写作急速上手）</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/Softwares%20Installation/gcc"
+               title="gcc 安装教程">gcc 安装教程</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/hpc"
+               title="High Performance Cluster(HPC) Topics">High Performance Cluster(HPC) Topics</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/notification_for_hpc"
+               title="计算任务的推送">计算任务的推送</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/pack_backup"
+               title="文件整理与备份攻略">文件整理与备份攻略</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/research_skill"
+               title="研究技能">研究技能</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/softwares"
+               title="Guidances for installation of codes">Guidances for installation of codes</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-dft+u"
+               title="CP2K:DFT+U">CP2K:DFT+U</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-e-f"
+               title="CP2K:能量与力的计算">CP2K:能量与力的计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-hf"
+               title="CP2K:杂化泛函">CP2K:杂化泛函</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-neb"
+               title="CP2K:NEB">CP2K:NEB</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-reftraj"
+               title="CP2K:REFTRAJ根据已有MD轨迹计算">CP2K:REFTRAJ根据已有MD轨迹计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-scan"
+               title="CP2K:SCAN泛函">CP2K:SCAN泛函</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-slab"
+               title="CP2K:Slab计算">CP2K:Slab计算</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-zpe"
+               title="CP2K:ZPE">CP2K:ZPE</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k"
+               title="CP2K入门">CP2K入门</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/experience_of_dpmd_and_dpgen"
+               title="DPMD和DPGEN使用经验">DPMD和DPGEN使用经验</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/n2p2"
+               title="n2p2 Usage Guide">n2p2 Usage Guide</a>
+          </li>
+          
+          <li class="md-nav__item mobile-nav" style="display:none">
+            <a class="md-nav__link" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/vmd"
+               title="vmd 使用说明">vmd 使用说明</a>
+          </li>
+          
+
+          <!-- This navigation is completely for non mobile -->
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">开始</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%BC%80%E5%A7%8B/howtodo" title="如何使用 wiki" style="display:none">如何使用 wiki</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%BC%80%E5%A7%8B/howtousenews" title="如何发布 News" style="display:none">如何发布 News</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">集群使用</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/cluster_usage" title="计算集群使用说明" style="display:none">计算集群使用说明</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/ssh_note" title="SSH 与 SCP 使用入门" style="display:none">SSH 与 SCP 使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/gpu_usage" title="使用集群上的 GPU" style="display:none">使用集群上的 GPU</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/conda" title="Anaconda" style="display:none">Anaconda</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8/jupyter" title="Jupyter" style="display:none">Jupyter</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">新生培训</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/toc" title="导览" style="display:none">导览</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/linux" title="Linux快速基础入门" style="display:none">Linux快速基础入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/read_papers" title="如何阅读文献" style="display:none">如何阅读文献</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/presentation" title="如何进行展示/Presentation" style="display:none">如何进行展示/Presentation</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/python_numpy" title="Python 和 Numpy" style="display:none">Python 和 Numpy</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/qc_dft" title="量子化学与密度泛函理论" style="display:none">量子化学与密度泛函理论</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/basis_pps" title="密度泛函近似，基组与赝势" style="display:none">密度泛函近似，基组与赝势</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpmd" title="机器学习: 理论与DeePMD-kit" style="display:none">机器学习: 理论与DeePMD-kit</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/dpgen" title="深度势能生成器: DP-GEN" style="display:none">深度势能生成器: DP-GEN</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E6%96%B0%E7%94%9F%E5%9F%B9%E8%AE%AD/workflow" title="自动化计算与工作流: AiiDA" style="display:none">自动化计算与工作流: AiiDA</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/book_recommendation">书籍推荐</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">合作协同</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/archive_rules" title="如何整理项目文件" style="display:none">如何整理项目文件</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E5%90%88%E4%BD%9C%E5%8D%8F%E5%90%8C/git_usage" title="Git 基本使用教程" style="display:none">Git 基本使用教程</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/tutorial_rules">如何组织培训</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">软件使用</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DeePMD-kit" title="DeePMD-kit 使用入门" style="display:none">DeePMD-kit 使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/DP-GEN" title="DP-GEN使用入门" style="display:none">DP-GEN使用入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Tips_for_LaTeX" title="Tips for paper writing with LaTeX" style="display:none">Tips for paper writing with LaTeX</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-dft+u" title="CP2K:DFT+U" style="display:none">CP2K:DFT+U</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-e-f" title="CP2K:能量与力的计算" style="display:none">CP2K:能量与力的计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-hf" title="CP2K:杂化泛函" style="display:none">CP2K:杂化泛函</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-neb" title="CP2K:NEB" style="display:none">CP2K:NEB</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-reftraj" title="CP2K:REFTRAJ根据已有MD轨迹计算" style="display:none">CP2K:REFTRAJ根据已有MD轨迹计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-scan" title="CP2K:SCAN泛函" style="display:none">CP2K:SCAN泛函</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-slab" title="CP2K:Slab计算" style="display:none">CP2K:Slab计算</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k-zpe" title="CP2K:ZPE" style="display:none">CP2K:ZPE</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/cp2k" title="CP2K入门" style="display:none">CP2K入门</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/experience_of_dpmd_and_dpgen" title="DPMD和DPGEN使用经验" style="display:none">DPMD和DPGEN使用经验</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/n2p2" title="n2p2 Usage Guide" style="display:none">n2p2 Usage Guide</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/vmd" title="vmd 使用说明" style="display:none">vmd 使用说明</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">Softwares Installation</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_191" title="DeepMD-kit快速安装：服务器篇" style="display:none">DeepMD-kit快速安装：服务器篇</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_51" title="DeepMD-kit安装实战：服务器篇" style="display:none">DeepMD-kit安装实战：服务器篇</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_pc" title="DeePMD-kit_installation_pc" style="display:none">DeePMD-kit_installation_pc</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/cp2k-7.1" title="CP2K 7.1 安装教程" style="display:none">CP2K 7.1 安装教程</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/deepmd-kit_installation_104" title="DeePMD-kit安装教程1.0" style="display:none">DeePMD-kit安装教程1.0</a>
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/Softwares%20Installation/gcc" title="gcc 安装教程" style="display:none">gcc 安装教程</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/miscellaneous">Miscellaneous</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item md-nav__item--nested not-mobile-nav">
+              <a class="md-nav__link pancakes-parent">ECINT Tutorial</a>
+              <nav class="md-nav">
+                <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                    
+                    <a class="md-nav__link pancakes-child" href="/wiki/ECINT%20Tutorial/user" title="ECINT 的使用" style="display:none">ECINT 的使用</a>
+                    
+                  </li>
+                </ul>
+              </nav>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/QS4writing">Quick Start for Paper Writing（科研写作急速上手）</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/hpc">High Performance Cluster(HPC) Topics</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/notification_for_hpc">计算任务的推送</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/pack_backup">文件整理与备份攻略</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/research_skill">研究技能</a>
+            </li>
+          
+          
+          
+          
+          
+            <li class="md-nav__item not-mobile-nav">
+              
+              <a class="md-nav__link" href="/wiki/softwares">Guidances for installation of codes</a>
+            </li>
+          
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+  <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+      <nav class="md-nav md-nav--secondary">
+        <label class="md-nav__title" for="__toc">Table of contents</label>
+        <ul id="nav-toc-right" class="md-nav__list" data-md-scrollfix="">
+        <!-- toc will be appended here!-->
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+                <div id="md-container-pancakes">
+                <div class="md-content"> 
+    <article class="md-content__inner md-typeset">
+    <h1 id="installation-guide-for-codes-and-libraries">Installation Guide for Codes and Libraries</h1>
+
+<h2 id="first-of-all-load-the-environments">First of all! Load the environments!</h2>
+
+<p>Before you install anything, especially when you need to compile codes, make sure the type of compiler and the version of compiler you have. Usually, in your personal computer, you can use compiler command directly, for instance, <code class="language-plaintext highlighter-rouge">gcc</code>, <code class="language-plaintext highlighter-rouge">gfortran</code>, <code class="language-plaintext highlighter-rouge">ifort</code>,<code class="language-plaintext highlighter-rouge">mpic++</code>. In remote cluster(High Performance Cluster), the compiler is managed by <code class="language-plaintext highlighter-rouge">module</code>. You cannnot use it unless you load it in advance. Therefore, make sure which compiler you have in <code class="language-plaintext highlighter-rouge">module</code>, and use command such as <code class="language-plaintext highlighter-rouge">module load gcc/4.9.4</code> to load required compilers.</p>
+
+<h3 id="general-protocal-for-installation">General Protocal for Installation:</h3>
+
+<ol>
+  <li>Compile the Code</li>
+  <li>Quick test the code at server node</li>
+  <li>Write module files to code (we recommend to manage codes by module)</li>
+  <li>Test the code in the client node</li>
+  <li>write example lsf file in <code class="language-plaintext highlighter-rouge">/share/base/scripts</code></li>
+</ol>
+
+<h3 id="where-to-install">Where to Install?</h3>
+
+<p>Install in the <code class="language-plaintext highlighter-rouge">/share/</code> directory. <code class="language-plaintext highlighter-rouge">/share/</code> directory is the one synchronized to all the nodes by nfs.</p>
+
+<ol>
+  <li>Libraries: <code class="language-plaintext highlighter-rouge">/share/apps/lib/&lt;library name&gt;/&lt;version&gt;</code></li>
+  <li>Codes, Pacakges, Softwares: <code class="language-plaintext highlighter-rouge">/share/apps/&lt;packages name&gt;/&lt;version&gt;</code></li>
+</ol>
+
+<h3 id="standard-in-writing-module-file">Standard in Writing Module file</h3>
+
+<ol>
+  <li>module name: <code class="language-plaintext highlighter-rouge">&lt;package name&gt;/&lt;version&gt;</code>, like <code class="language-plaintext highlighter-rouge">cp2k/6.1</code></li>
+</ol>
+
+<h3 id="standard-in-writing-lsf-file">Standard in Writing lsf file</h3>
+
+<ol>
+  <li>export necessary environmental variable</li>
+  <li>load prerequisite module</li>
+</ol>
+
+<h2 id="anaconda-installation-guide">Anaconda Installation Guide</h2>
+
+<h3 id="short-introduction">Short Introduction</h3>
+
+<p>The open-source Anaconda Distribution is the easiest way to perform Python/R data science and machine learning on Linux, Windows, and Mac OS X. Choose the one suitable for you usage. If you’d like to use Anaconda in Cluster, ask cluster administrator if Anaconda have been installed, which avoid storage waste in your cluster’s storage.</p>
+
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>A minimum version of Conda is install in cluster51 by Yunpei Liu. Use it by module command</p>
+</div>
+
+<h3 id="installation-guide">Installation Guide</h3>
+
+<ul>
+  <li>Go to <a href="https://www.anaconda.com/distribution/">this website</a>, choose the right version for you. Personally, I recommend command line Installer for Linux and Mac OS System, while the Graphical Installer for Windows System</li>
+  <li>Follow the instruction in <a href="https://docs.anaconda.com/anaconda/install/">this page</a></li>
+</ul>
+
+<h2 id="quip-installation-guide">QUIP Installation Guide</h2>
+
+<h3 id="short-introduction-1">Short Introduction</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">QUIP</code> package is a collection of software tools to carry out molecular dynamics simulations. It implements a variety of interatomic potentials and tight binding quantum mechanics, and is also able to call external packages, and serve as plugins to other software such as <a href="http://lammps.sandia.gov/">LAMMPS</a>, <a href="http://www.cp2k.org/">CP2K</a> and also the python framework <a href="https://wiki.fysik.dtu.dk/ase">ASE</a>. Various hybrid combinations are also supported in the style of QM/MM, with a particular focus on materials systems such as metals and semiconductors.</p>
+
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>The tested compiler version: &lt;gcc 6.3.0&gt; and &lt;openmpi 3.0.0&gt; for your information.</p>
+</div>
+
+<h3 id="use-quip-and-quippy-in-cluster-51">Use QUIP and quippy in cluster 51</h3>
+
+<p>If you need use QUIP/GAP in cluster 51, please used command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load gcc/6.3.0 mpi/openmpi/3.0.0
+module load QUIP/GAP
+</code></pre></div></div>
+
+<p>If you want to use quippy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load miniconda/3
+source activate /share/apps/QUIP/quippy-py3/
+</code></pre></div></div>
+
+<h3 id="install-guide">Install Guide</h3>
+
+<ul>
+  <li>Git clone from repository</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--recursive</span> https://github.com/libAtoms/QUIP.git
+</code></pre></div></div>
+
+<ul>
+  <li>Go to the package root and export variable</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">QUIP_ARCH</span><span class="o">=</span>linux_x86_64_gfortran
+</code></pre></div></div>
+
+<ul>
+  <li>Make configuration</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make config
+<span class="c">#if everything fine</span>
+make
+</code></pre></div></div>
+
+<h3 id="packages-and-extra-interfaces-of-quip">Packages and Extra Interfaces of QUIP</h3>
+
+<h4 id="add-gap-packages">Add GAP Packages</h4>
+
+<ul>
+  <li>Download GAP file from <a href="#http://www.libatoms.org/gap/gap_download.html">here</a>, then you obtain a tar file named <code class="language-plaintext highlighter-rouge">GAP.tar</code>, unzip it</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> GAP.tar
+</code></pre></div></div>
+
+<ul>
+  <li>You will obtain a directory named <code class="language-plaintext highlighter-rouge">GAP/</code>, copy this directory into QUIP root/src.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nt">-r</span> GAP &lt;QUIP root&gt;/src/
+</code></pre></div></div>
+
+<ul>
+  <li>Reconfig your make by choose <code class="language-plaintext highlighter-rouge">install GAP</code> as <code class="language-plaintext highlighter-rouge">y</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#recompile this code again</span>
+make
+</code></pre></div></div>
+
+<h4 id="build-quippy-a-quip-python-interface">Build QUIPPY, A QUIP Python Interface</h4>
+
+<ul>
+  <li>Export another environmental variable</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#install for your self</span>
+<span class="nb">export </span><span class="nv">QUIPPY_INSTALL_OPTS</span><span class="o">=</span><span class="nt">--user</span>
+<span class="c">#choose the location for installation of quippy</span>
+<span class="nb">export </span><span class="nv">QUIPPY_INSTALL_OPTS</span><span class="o">=</span><span class="nt">--prefix</span><span class="o">=</span>&lt;directory&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>Go to <code class="language-plaintext highlighter-rouge">&lt;QUIP root&gt;/src/f90wrap</code>, and install f90wrap by:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Back to <code class="language-plaintext highlighter-rouge">&lt;QUIP root&gt;</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make install-quippy
+</code></pre></div></div>
+
+<ul>
+  <li>Test whether installed successfully.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make <span class="nb">test</span>
+</code></pre></div></div>
+
+<h4 id="trouble-shooting">Trouble Shooting</h4>
+
+<h5 id="importerror-dynamic-module-does-not-define-module-export-function">ImportError: dynamic module does not define module export function</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Example:
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "/share/apps/QUIP/quippy-py3/lib/python3.8/site-packages/quippy-https_github.com_libAtoms_QUIP.git_ec1ed34_dirty-py3.8-linux-x86_64.egg/quippy/__init__.py", line 2, in &lt;module&gt;
+    import _quippy
+ImportError: dynamic module does not define module export function (PyInit__quippy)
+</code></pre></div></div>
+
+<p>Solution: add <QUIP_root>/build/${QUIP_ARCH} into your Python PATH</QUIP_root></p>
+
+<h2 id="vasp">VASP</h2>
+
+<h3 id="short-introduction-2">Short Introduction</h3>
+<p>(TODO)</p>
+
+<h3 id="install-guide-1">Install Guide</h3>
+<ol>
+  <li>
+    <p>Get the VASP source code and pseudopotentials.</p>
+  </li>
+  <li>Load environment
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module load intel
+</code></pre></div>    </div>
+  </li>
+  <li>Choose <code class="language-plaintext highlighter-rouge">makefile.include</code> according to the platform and make
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd vasp.5.4.4
+make std
+make gam
+</code></pre></div>    </div>
+  </li>
+  <li>If everything is right, you will find <code class="language-plaintext highlighter-rouge">vasp_std</code> in <code class="language-plaintext highlighter-rouge">vasp.5.4.4/build/std</code> and you can run it with <code class="language-plaintext highlighter-rouge">mpirun -np 24 vasp_std</code>.</li>
+</ol>
+
+<h3 id="plugins">Plugins</h3>
+
+<h4 id="wannier90">Wannier90</h4>
+
+<ol>
+  <li>
+    <p>Download Wannier90 from http://www.wannier.org/download/ . <em>Notice: currently VASP only support Wannier90-1.2</em></p>
+  </li>
+  <li>Modify compile file for Wannier90  <code class="language-plaintext highlighter-rouge">make.sys.intel</code>. Here we use the MKL.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#LIBDIR = /opt/intel/mkl721/lib/32</span>
+<span class="c">#LIBS = -L$(LIBDIR) -lmkl_lapack -lmkl_ia32 -lguide -lpthread</span>
+LIBDIR <span class="o">=</span> <span class="si">$(</span>MKLROOT<span class="si">)</span>/lib/intel64
+LIBS <span class="o">=</span> <span class="nt">-L</span><span class="si">$(</span>LIBDIR<span class="si">)</span> <span class="nt">-mkl</span> <span class="nt">-lpthread</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Compile and test
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> ./config/make.inc.ifort make.inc
+make 
+make lib <span class="c"># compile to get the libary: libwannier.a </span>
+make tests <span class="c"># test whether the compilation is success</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">libwannier.a </code> libary file to VASP libary path and modify VASP <code class="language-plaintext highlighter-rouge">makefile.include</code>.</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Precompiler options</span>
+<span class="nv">CPP_OPTIONS</span><span class="o">=</span> <span class="nt">-DHOST</span><span class="o">=</span><span class="se">\"</span>LinuxIFC<span class="se">\"\</span>
+             <span class="nt">-DMPI</span> <span class="nt">-DMPI_BLOCK</span><span class="o">=</span>8000 <span class="se">\</span>
+             <span class="nt">-Duse_collective</span> <span class="se">\</span>
+             <span class="nt">-DscaLAPACK</span> <span class="se">\</span>
+             <span class="nt">-DCACHE_SIZE</span><span class="o">=</span>4000 <span class="se">\</span>
+             <span class="nt">-Davoidalloc</span> <span class="se">\</span>
+             <span class="nt">-Duse_bse_te</span> <span class="se">\</span>
+             <span class="nt">-Dtbdyn</span> <span class="se">\</span>
+             <span class="nt">-Duse_shmem</span> <span class="se">\</span>
+             <span class="nt">-DVASP2WANNIER90</span>   <span class="c">## modify this line for Wannier90</span>
+             
+LLIBS +<span class="o">=</span> ../../libwannier.a  <span class="c">## change here to the location of libwannier.a</span>
+</code></pre></div></div>
+
+<h3 id="compilation-optimization">Compilation optimization</h3>
+<p>If you use <code class="language-plaintext highlighter-rouge">Intel Xeon Silver/Gold/Platium</code> CPU, using the following compilation parameters will get a 2✖ speedup! (Already test on 205 server)</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OFLAG      <span class="o">=</span> <span class="nt">-O3</span> <span class="nt">-xCORE-AVX512</span>
+</code></pre></div></div>
+
+<h3 id="todo-in-the-future">TODO in the future</h3>
+
+<ol>
+  <li>Install vasp_gpu version</li>
+  <li>Benchmark different libary (FFTW/MKL)</li>
+  <li>other plugins: VASP-neb, vasp-beef</li>
+  <li>vasp6</li>
+</ol>
+
+<h2 id="lammps-installation-guide">LAMMPS Installation Guide</h2>
+
+<h3 id="short-introduction-3">Short Introduction</h3>
+
+<p>LAMMPS is a classical molecular dynamics code with a focus on materials modeling. It’s an acronym for Large-scale Atomic/Molecular Massively Parallel Simulator.</p>
+
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>I have installed one in cluster51, in directory /share/apps/lammps-7Aug19/. The compiler version: &lt;gcc 6.3.0&gt; and &lt;openmpi 3.0.0&gt; for your information.</p>
+</div>
+
+<h3 id="install-guide-2">Install Guide</h3>
+
+<ul>
+  <li>Git clone or download package from <a href="https://lammps.sandia.gov/download.html">website</a></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># command for git</span>
+git clone <span class="nt">-b</span> stable https://github.com/lammps/lammps.git mylammps
+</code></pre></div></div>
+
+<ul>
+  <li>We assume you the package path is <lammps-root></lammps-root></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;lammps-root&gt;/src
+<span class="c">#choose one of the following or both</span>
+<span class="c"># build a serial LAMMPS executable</span>
+make serial 
+<span class="c"># build a parallel LAMMPS executable with MPI</span>
+make mpi        
+</code></pre></div></div>
+
+<ul>
+  <li>You will see the executable binary in <code class="language-plaintext highlighter-rouge">src/lmp_serial</code> or <code class="language-plaintext highlighter-rouge">src/lmp_mpi</code></li>
+</ul>
+
+<h3 id="packages-and-extra-interfaces-of-lammps">Packages and Extra Interfaces of LAMMPS</h3>
+
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>Contact Cluster Administrator if you need any uninstalled packages</p>
+</div>
+
+<h4 id="general-for-installing-package">General for Installing Package</h4>
+
+<ul>
+  <li>To install package of LAMMPS, just type <code class="language-plaintext highlighter-rouge">make yes-&lt;package name&gt;</code> for example, <code class="language-plaintext highlighter-rouge">make yes-user-intel</code></li>
+</ul>
+
+<h4 id="building-user-atc-package">Building USER-ATC Package</h4>
+
+<ul>
+  <li>Before you install this package by <code class="language-plaintext highlighter-rouge">make yes-user-atc</code>, you should install <code class="language-plaintext highlighter-rouge">lib-atc</code> which is a library for atc package</li>
+  <li>Go to the directory <code class="language-plaintext highlighter-rouge">&lt;LAMMPS root&gt;/lib/atc</code>, you can follow the instruction in the <code class="language-plaintext highlighter-rouge">README</code>. Remember to load module <code class="language-plaintext highlighter-rouge">gcc</code> and <code class="language-plaintext highlighter-rouge">open mpi</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;LAMMPS root&gt;/lib/atc
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">lib-atc</code> need library <code class="language-plaintext highlighter-rouge">lapack</code> and <code class="language-plaintext highlighter-rouge">blas</code> installed. Check whether this library installed or not by command:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#check for lapack library</span>
+ldconfig <span class="nt">-p</span> | <span class="nb">grep </span>lapack
+<span class="c">#check for blas library</span>
+ldconfig <span class="nt">-p</span> | <span class="nb">grep </span>blas
+</code></pre></div></div>
+
+<ul>
+  <li>If <code class="language-plaintext highlighter-rouge">lapack</code> and <code class="language-plaintext highlighter-rouge">blas</code> are installed. Change the value of  <code class="language-plaintext highlighter-rouge">EXTRAMAKE</code> variable to <code class="language-plaintext highlighter-rouge">Makefile.lammps.installed</code> in the file <code class="language-plaintext highlighter-rouge">Makefile.mpi</code>.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">EXTRAMAKE</span><span class="o">=</span> Makefile.lammps.installed
+</code></pre></div></div>
+
+<ul>
+  <li>Make library by following command</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make <span class="nt">-f</span> Makefile.mpi
+</code></pre></div></div>
+
+<ul>
+  <li>Make sure you have <code class="language-plaintext highlighter-rouge">libatc.a</code> and <code class="language-plaintext highlighter-rouge">Makefile.lammps</code> in your current directory</li>
+  <li>Back to directory <code class="language-plaintext highlighter-rouge">&lt;LAMMPS root&gt;/src/</code> and type <code class="language-plaintext highlighter-rouge">make mpi</code> to compile mpi version of LAMMPS</li>
+</ul>
+
+<h4 id="building-inteface-with-n2p2">Building Inteface with n2p2</h4>
+
+<ul>
+  <li>make sure you have shared library <code class="language-plaintext highlighter-rouge">libnnpif-shared</code> in your <code class="language-plaintext highlighter-rouge">&lt;path to n2p2&gt;/lib/</code></li>
+  <li>export the following in your environmental variable(optional)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#export this if you use shared library, skip if you are using static library</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;path to n2p2&gt;/lib:<span class="k">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="k">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Go to LAMMPS root</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;LAMMPS root&gt;/
+<span class="nb">ln</span> <span class="nt">-s</span> &lt;path to n2p2&gt; lib/nnp
+<span class="nb">cp</span> <span class="nt">-r</span> &lt;path to n2p2&gt;/src/interface/LAMMPS/src/USER-NNP &lt;LAMMPS root&gt;/src
+<span class="nb">cd</span> &lt;LAMMPS root&gt;/src
+make yes-user-nnp
+make mpi
+</code></pre></div></div>
+
+<h4 id="building-with-plumed">Building with Plumed</h4>
+
+<ul>
+  <li>Before you install, make sure the Plumed has installed</li>
+  <li>To directory <code class="language-plaintext highlighter-rouge">&lt;LAMMPS root&gt;/src/</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make lib-plumed <span class="nv">args</span><span class="o">=</span><span class="s2">"-p &lt;path to plumed directory&gt;"</span>
+make yes-user-plumed
+make mpi
+</code></pre></div></div>
+
+<h2 id="deepmd-installation-guide">DeePMD Installation Guide</h2>
+
+<h3 id="short-introduction-4">Short Introduction</h3>
+
+<p>DeePMD-kit is a package written in Python/C++, designed to minimize the effort required to build deep learning based model of interatomic potential energy and force field and to perform molecular dynamics (MD). This brings new hopes to addressing the accuracy-versus-efficiency dilemma in molecular simulations. Applications of DeePMD-kit span from finite molecules to extended systems and from metallic systems to chemically bonded systems. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.143001">Ref. Paper</a></p>
+
+<h3 id="install-guide-3">Install Guide</h3>
+
+<ul>
+  <li>Here, we display the most easiest way to install DeePMD Code.</li>
+  <li>Make sure you have <code class="language-plaintext highlighter-rouge">GPU</code> install in your computer. Usually, you can check with the drive of <code class="language-plaintext highlighter-rouge">GPU</code></li>
+  <li>Install the <code class="language-plaintext highlighter-rouge">anaconda3</code> from website. After you installed anaconda3, you can use <code class="language-plaintext highlighter-rouge">conda</code> command.</li>
+  <li>Install DeePMD with cpu or gpu version. Installation by this way will install lammps as well.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#install of cpu version</span>
+conda <span class="nb">install </span>deepmd-kit<span class="o">=</span><span class="k">*</span><span class="o">=</span><span class="k">*</span>cpu lammps-dp<span class="o">=</span><span class="k">*</span><span class="o">=</span><span class="k">*</span>cpu <span class="nt">-c</span> deepmodeling
+<span class="c">#install of gpu version</span>
+conda <span class="nb">install </span>deepmd-kit<span class="o">=</span><span class="k">*</span><span class="o">=</span><span class="k">*</span>gpu lammps-dp<span class="o">=</span><span class="k">*</span><span class="o">=</span><span class="k">*</span>gpu <span class="nt">-c</span> deepmodeling
+</code></pre></div></div>
+
+<ul>
+  <li>That’s all for installation. Check the install package use command:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda list | <span class="nb">grep </span>deep
+</code></pre></div></div>
+
+<ul>
+  <li>You will find four packages related with DeePMD code. You can now directly use command <code class="language-plaintext highlighter-rouge">dp</code> , <code class="language-plaintext highlighter-rouge">lmp</code>.</li>
+  <li>To test DeePMD Code. Download DeePMD code from github by:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/deepmodeling/deepmd-kit.git
+</code></pre></div></div>
+
+<ul>
+  <li>Go to the directory <code class="language-plaintext highlighter-rouge">examples/water/train/</code></li>
+  <li>Test training by</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dp train water_se_a.json
+</code></pre></div></div>
+
+<h3 id="install-guide-of-deepmd-in-国重">Install Guide of DeePMD in 国重</h3>
+
+<p><a href="/pages/chenggroup/wiki/deepmd-kit_installation_104">国重安装实战记录</a></p>
+
+<h2 id="n2p2-installation-guide">n2p2 Installation Guide</h2>
+
+<h3 id="short-introduction-5">Short Introduction</h3>
+
+<p>n2p2 is a machine learning code to training a machine learning potential. It original paper is from <a href="https://doi.org/10.1103/PhysRevLett.98.146401">J. Behler and M. Parrinello, Phys. Rev. Lett. 98, 146401 (2007)</a></p>
+
+<h3 id="install-guide-4">Install Guide</h3>
+
+<ul>
+  <li>Before Installation, make sure you have installed the <a href="#Eigen Library Installation Guide">Eigen Library</a> and the <a href="#GSL Library Installation Guide">GSL Library</a>.</li>
+  <li>Make sure you have <code class="language-plaintext highlighter-rouge">gcc</code> compiler (including <code class="language-plaintext highlighter-rouge">gfortran</code>), I haven’t successfully compiled by <code class="language-plaintext highlighter-rouge">intel</code> compiler. Make sure you have open MPI(i. e. for <code class="language-plaintext highlighter-rouge">mpic++</code> command).</li>
+  <li>Download the n2p2 code from github: https://github.com/CompPhysVienna/n2p2. For example, using the following command.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/CompPhysVienna/n2p2.git
+</code></pre></div></div>
+
+<ul>
+  <li>You can see a directory named <code class="language-plaintext highlighter-rouge">n2p2</code>, now go into that by:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>n2p2/src
+</code></pre></div></div>
+
+<ul>
+  <li>Modify the configure file <code class="language-plaintext highlighter-rouge">makefile.gnu</code></li>
+</ul>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#modify this file, I just pick out the part you need to modify
+# Enter here paths to GSL or EIGEN if they are not in your standard include
+# path. DO NOT completely remove the entry, leave at least "./".
+</span><span class="nv">PROJECT_GSL</span><span class="o">=</span>&lt;path to gsllib&gt;/gsl/include/ <span class="c"># substitute &lt;path&gt; with real path</span>
+<span class="nv">PROJECT_EIGEN</span><span class="o">=</span>&lt;path to eigen&gt;/eigen-eigen-323c052e1731 <span class="c"># substitute &lt;path&gt; with real path</span>
+
+ <span class="c">###############################################################################
+</span> <span class="c"># COMPILERS AND FLAGS
+</span> <span class="c">###############################################################################
+</span><span class="nv">PROJECT_CFLAGS</span><span class="o">=</span><span class="nt">-O3</span> <span class="nt">-march</span><span class="o">=</span>native <span class="nt">-std</span><span class="o">=</span>c++11 <span class="nt">-fopenmp</span> <span class="nt">-L</span>&lt;pato to gsllib&gt;gsl/lib
+<span class="nv">PROJECT_LDFLAGS_BLAS</span><span class="o">=</span><span class="nt">-lblas</span> <span class="nt">-lgslcblas</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Save and quit this file, use the following command to compile code:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#choose one of the following command</span>
+make <span class="nv">MODE</span><span class="o">=</span>shared <span class="c"># compile a binary with shared library</span>
+make <span class="nv">MODE</span><span class="o">=</span>static <span class="c"># compile a binary with static library, I use this one</span>
+</code></pre></div></div>
+
+<ul>
+  <li>After you compiled successfully, you will have all the excutable binary at <code class="language-plaintext highlighter-rouge">n2p2/bin/</code> directory</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">n2p2/bin/</code> to your <code class="language-plaintext highlighter-rouge">PATH</code> environmental variable, you can easily use this. The most important binary is <code class="language-plaintext highlighter-rouge">nnp-train</code>, this is used for training.</li>
+  <li>Add n2p2 library to your <code class="language-plaintext highlighter-rouge">LD_LIBRARY_PATH</code> in <code class="language-plaintext highlighter-rouge">.bashrc</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;Path to n2p2&gt;/lib/:<span class="nv">$LD_LIBRARY_PATH</span>
+</code></pre></div></div>
+
+<h2 id="plumed-installation-guide">Plumed Installation Guide</h2>
+
+<h3 id="short-introduction-6">Short Introduction</h3>
+
+<p>PLUMED is an open-source, community-developed library that provides a wide range of different methods, which include:</p>
+
+<ul>
+  <li>enhanced-sampling algorithms</li>
+  <li>free-energy methods</li>
+  <li>tools to analyze the vast amounts of data produced by molecular dynamics (MD) simulations.</li>
+</ul>
+
+<p>These techniques can be used in combination with a large toolbox of collective variables that describe complex processes in physics, chemistry, material science, and biology.</p>
+
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>I have installed one in cluster51. Use module load plumed/2.6.0 to use this library. The compiler version: &lt;gcc 6.3.0&gt; &lt;openmpi/3.0.0&gt; for your information</p>
+</div>
+
+<h3 id="install-guide-5">Install Guide</h3>
+
+<ul>
+  <li>Download package from <a href="https://www.plumed.org//download.html">here.</a></li>
+  <li>Basic Configure</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure <span class="nt">--prefix</span><span class="o">=</span>&lt;path you want to <span class="nb">install</span><span class="o">&gt;</span> <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-L</span><span class="s1">'/share/apps/lib/fftw/3.3.8/lib'</span> <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-I</span><span class="s1">'/share/apps/lib/fftw/3.3.8/lib '</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Compile</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make <span class="nt">-j</span> 32
+make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h2 id="eigen-library-installation-guide">Eigen Library Installation Guide</h2>
+
+<h3 id="short-introduction-7">Short Introduction</h3>
+
+<p>Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.</p>
+
+<h3 id="install-guide-6">Install Guide</h3>
+
+<ul>
+  <li>Download the package from wiki:http://eigen.tuxfamily.org/index.php?title=Main_Page#Overview. For me, I choose the Eigen 3.3.7 released version.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://bitbucket.org/eigen/eigen/get/3.3.7.tar.bz2
+</code></pre></div></div>
+
+<ul>
+  <li>Unpack this tar file by</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-zxvf</span> 3.3.7.tar.gz
+</code></pre></div></div>
+
+<ul>
+  <li>You will have <code class="language-plaintext highlighter-rouge">eigen-eigen-*</code> directory in your computer</li>
+  <li>These are all steps you need to install <code class="language-plaintext highlighter-rouge">eigen library</code></li>
+</ul>
+
+<h2 id="gsl-library-installation-guide">GSL Library Installation Guide</h2>
+
+<h3 id="short-introduction-8">Short Introduction</h3>
+
+<p>The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is a free open source library under the GNU General Public License.</p>
+
+<p>This guide is from: <a href="https://coral.ise.lehigh.edu/jild13/2016/07/11/hello/">website tutorial</a></p>
+
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>I have installed one in cluster51, in directory /share/apps/lib/gsl-2.6. The compiler version: &lt;gcc 6.3.0&gt; for your information</p>
+</div>
+
+<h3 id="install-guide-7">Install Guide</h3>
+
+<ul>
+  <li>Download the latest version of gsl library.
+For reference: <a href="https://www.gnu.org/software/gsl/"><strong>ftp://ftp.gnu.org/gnu/gsl/</strong></a></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget ftp://ftp.gnu.org/gnu/gsl/gsl-latest.tar.gz
+</code></pre></div></div>
+
+<ul>
+  <li>Place the file in whatever directory you want to install and unpack the file with the following command:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-zxvf</span> gsl-latest.tar.gz
+</code></pre></div></div>
+
+<ul>
+  <li>This will create a directory called gsl-*.* in your home directory. Change to this directory.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>gsl-<span class="k">*</span>.<span class="k">*</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The next step is to configure the installation and tell the system where to install the files. Create a directory to install your gsl package, say <code class="language-plaintext highlighter-rouge">&lt;Path to libgsl&gt;/gsl</code> with the following command</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> &lt;Path to libgsl&gt;/gsl
+</code></pre></div></div>
+
+<ul>
+  <li>Now configure the installation and tell it to use your new directory. This step may take a few minutes.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure <span class="nt">--prefix</span><span class="o">=</span>&lt;Path to libgsl&gt;/gsl
+</code></pre></div></div>
+
+<ul>
+  <li>If there are no errors, compile the library. This step will take several minutes.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+</code></pre></div></div>
+
+<ul>
+  <li>Now it is necessary to check and test the library before actually installing it. This step will take some time.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make check
+</code></pre></div></div>
+
+<ul>
+  <li>If there are no errors, go ahead and install the library with:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make <span class="nb">install</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Now we can write a test program to see if the library works. Create the following program and name it example.c</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;gsl/gsl_sf_bessel.h&gt;
+</span>
+<span class="kt">int</span>
+<span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">15.0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">gsl_sf_bessel_J0</span> <span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span> <span class="p">(</span><span class="s">"J0(%g) = %.18e/n"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Compile and link the program with the following commands (but use the correct path for your username):</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc <span class="nt">-Wall</span> <span class="nt">-I</span>&lt;Path to libgsl&gt;/gsl/include <span class="nt">-c</span> example.c
+gcc <span class="nt">-L</span>&lt;Path to libgsl&gt;/gsl/lib example.o <span class="nt">-lgsl</span> <span class="nt">-lgslcblas</span> <span class="nt">-lm</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Now run your program!</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./a.out
+</code></pre></div></div>
+
+<ul>
+  <li>If it is succesfully installed, it will print a  number in your screen.</li>
+  <li>add libray path to LD_LIBRARY_PATH in <code class="language-plaintext highlighter-rouge">.bashrc</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;path to libgsl&gt;/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+</code></pre></div></div>
+
+<h2 id="libxc-library-installation-guide">Libxc Library Installation Guide</h2>
+
+<ul>
+  <li>Download the latest stable version of libxc from official website:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://www.tddft.org/programs/libxc/down.php?file<span class="o">=</span>4.3.4/libxc-4.3.4.tar.gz
+</code></pre></div></div>
+
+<h2 id="fftw-library-installation-guide">FFTW Library Installation Guide</h2>
+
+<h3 id="short-introduction-9">Short Introduction</h3>
+
+<p>FFTW is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST).</p>
+
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>I have installed one in cluster51, in directory /share/apps/lib/fftw/3.3.8. Use module load fftw/3.3.8 to use this library. The compiler version: &lt;gcc 6.3.0&gt; for your information</p>
+</div>
+
+<h3 id="install-guide-8">Install Guide</h3>
+
+<ul>
+  <li>Download the release version from official website using wget</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://www.fftw.org/fftw-3.3.8.tar.gz
+</code></pre></div></div>
+
+<ul>
+  <li>Unzi the package</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> fftw-3.3.8.tar.gz
+</code></pre></div></div>
+
+<ul>
+  <li>Go to the directory <code class="language-plaintext highlighter-rouge">fftw-3.3.8</code></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure <span class="nt">--prefix</span><span class="o">=</span>&lt;path to you want to <span class="nb">install</span><span class="o">&gt;</span>    <span class="se">\</span>
+            <span class="nt">--enable-shared</span>  <span class="se">\</span>
+            <span class="nt">--enable-threads</span> <span class="se">\</span>
+            <span class="nt">--enable-sse2</span>    <span class="se">\</span>
+            <span class="nt">--enable-avx</span>     
+</code></pre></div></div>
+
+<ul>
+  <li>If configure is finished</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+<span class="c">#check if you install finished</span>
+make check
+<span class="c">#install to the final directory which you have set in --prefix</span>
+make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h2 id="cp2k-installation-guide">CP2K Installation Guide</h2>
+
+<ul>
+  <li>Download the release version from official website using wget like</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/cp2k/cp2k/releases/download/v6.1.0/cp2k-6.1.tar.bz2
+</code></pre></div></div>
+
+<ul>
+  <li>Unzip the cp2k package</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> cp2k-6.1.tar.bz2
+</code></pre></div></div>
+
+<ul>
+  <li>Go into directory cp2k-6.1/tools/toolchains/</li>
+  <li>Stop here! you should check you compiler version, if you are in the High Performance Cluster, Please load the module for compiler and MPI/Open MPI</li>
+  <li>Note: for gcc version, gcc &lt;= 7.4.0</li>
+  <li>Execute the following script to see the help message</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./install_cp2k_toolchain.sh -h
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Choose which package you want to install before cp2k.</p>
+
+    <p><strong>Some packages are essential for cp2k, please check this in the official web site</strong></p>
+  </li>
+  <li>
+    <p>the minimum required is <code class="language-plaintext highlighter-rouge">with-openblas=install</code>, if you want to compile successfully.</p>
+  </li>
+</ul>
+
+
+    <script
+  src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js"
+  crossorigin="anonymous"></script>
+<script src="/pages/chenggroup/assets/js/toc.js"></script>
+<script src="/pages/chenggroup/assets/js/scrollnav.min.umd.js"></script>
+
+<script>
+const content = document.querySelector('.md-content__inner');
+const insertTarget = document.querySelector('#nav-toc-right');
+scrollnav.init(content, {
+    debug: false,
+    sections: 'h2',
+    subSections: 'h3',
+    insertTarget: insertTarget,
+    insertLocation: 'append',
+    easingStyle: 'easeInOutQuint'
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#nav-toc-left').toc({headers: 'h2, h3', showEffect: 'slideDown', showSpeed: 'quick'});
+})
+</script>
+
+    <!-- this will parse through the header fields and add a button to open
+     an issue / ask a question on Github. The editable field should be in
+     the post frontend matter, and refer to the label to open the issue for -->
+
+<style>
+.more {
+    float:right;
+    font-size: 1.0rem !important;
+}
+.more:hover {
+    color: cornflowerblue !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 85px;
+    font-weight: 300;
+    font-size: x-small;
+    box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.2);
+    padding: 0px 10px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+<script>
+$(document).ready(function() {
+
+    var divs = $("#h1,h2,h3,h4"); 
+    $.each(divs, function(i,e){
+
+        // Edit
+        var did = $(e).attr('id');
+        var start = '<div class="dropdown more"><span><i class="fa fa-ellipsis-h more" title="Edit"></i></span><div class="dropdown-content">';
+
+        // Edit (assuming deployed under main organization repo)
+        var link = "https://github.com/chenggroup/chenggroup.github.io/edit/master/_wiki/softwares.md#" + did;
+        var button = "<p><a href='" + link + "' target='_blank'>Edit this page</a></p>";
+        start += button;
+
+        // Issues;
+        var link = "https://github.com/chenggroup/chenggroup.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/chenggroup/chenggroup.github.io/tree/master/_wiki/softwares.md%23" + did;
+
+        var button = "<p><a href='" + link + "' target='_blank'>Ask a Question</a></p>";
+        start += button;
+        start += "</div></div>";
+        $(e).append(start)
+
+    })
+});
+</script>
+
+    </article>
+</div>
+
+
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="c-footer md-footer-nav">
+  <div class="u-container c-footer__container">
+    <nav class="md-footer-nav__inner md-grid">
+         <a href="/pages/chenggroup/wiki/tutorial_rules" title="如何组织培训" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                如何组织培训
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+      </nav>
+    </div>
+  
+   <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 - Chenggroup
+          </div>        
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <a href="https://github.com/chenggroup" target="_blank" class="md-footer-social__link fa fa-github"></a>
+      
+      
+      
+  </div>
+
+    </div>
+  </div>
+
+</footer>
+<script src="/pages/chenggroup/assets/js/application.js"></script>
+
+<script>app.initialize({version:"0.17.4", url:{base:'/pages/chenggroup'}})</script>
+
+    <script>
+var headers = ["h1", "h2", "h3", "h4"]
+var colors = ["red", "orange", "green", "blue"]
+
+$.each(headers, function(i, header){
+    var color = colors[i];
+    $(header).each(function () {
+        var href=$(this).attr("id");
+        $(this).append('<a class="headerlink" style="color:' + color + '" href="#' + href + '" title="Permanent link">¶</a>')
+    });
+})
+
+// Ensure that sidebar on left has arrows
+$(".pancakes-parent").on('click', function(){ 
+    console.log($(this).next());
+    $(this).next().find('.pancakes-child').toggle();
+    if ($(this).hasClass('open-parent')){
+        $(this).removeClass('open-parent');
+    } else {
+        $(this).addClass('open-parent');
+    }
+})
+</script>
+
+    <script>$('h1').first().append('<div><span class="md-typeset" style="float:right">Authors: Yongbin Zhuang</span></div>')</script>
+
+    <style>
+#scrolltop {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #00a1d6; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px 15px; /* Some padding */
+  border-radius: 100px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  font-weight: 600;
+}
+
+#scrolltop:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+</style>
+<button onclick="topFunction()" id="scrolltop" title="Go to top">🔝</button>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrolltop").style.display = "block";
+  } else {
+    document.getElementById("scrolltop").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+    
+
+  </body>
+</html>
